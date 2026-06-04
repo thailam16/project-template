@@ -14,5 +14,8 @@ export default defineConfig({
   },
   server: {
     port: 5173,
+    // Fail rõ ràng nếu 5173 đang bận (vd một project khác cũng dùng 5173) thay vì âm thầm
+    // nhảy sang 5174 — tránh việc mở localhost:5173 lại thấy nhầm project khác.
+    strictPort: true,
   },
 });
