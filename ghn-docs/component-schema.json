@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GHN DS component metadata",
+  "type": "object",
+  "required": [
+    "slug",
+    "title",
+    "group",
+    "url",
+    "kind",
+    "status"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "group": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "component",
+        "foundation"
+      ]
+    },
+    "status": {
+      "enum": [
+        "Ổn định",
+        "Kế thừa",
+        "Beta",
+        "Ngừng dùng"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "importPath": {
+      "type": "string"
+    },
+    "props": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {},
+          "type": {},
+          "required": {},
+          "default": {},
+          "description": {}
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {},
+          "title": {}
+        }
+      }
+    },
+    "doNotUse": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

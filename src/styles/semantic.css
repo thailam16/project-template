@@ -1,0 +1,119 @@
+/* GHN semantic tokens — extracted verbatim from @ghn/design-system docs (ghn-docs.css :root).
+   The component layer references these aliases (--ghn-primary, --ghn-text-muted, --ghn-border, ...).
+   Primitive/brand tokens come from tokens.css; this file adds the semantic aliases on top. */
+:root {
+  /* --- Brand / primary (locked, Figma) --- */
+  --ghn-primary: #ff5200;
+  --ghn-primary-hover: #ff7429;
+  --ghn-primary-active: #d4490b;
+  --ghn-primary-soft: #fff2e6;
+  --ghn-primary-soft-active: #ffe6d2;
+  --ghn-on-primary: #ffffff;
+
+  /* primary ramp (10 bậc, dùng cho .ramp — dẫn xuất quanh #ff5200) */
+  --ghn-primary-1: #fff2e6;
+  --ghn-primary-2: #ffe0c7;
+  --ghn-primary-3: #ffc59c;
+  --ghn-primary-4: #ffa46a;
+  --ghn-primary-5: #ff7429;
+  --ghn-primary-6: #ff5200; /* base */
+  --ghn-primary-7: #e54800;
+  --ghn-primary-8: #d4490b;
+  --ghn-primary-9: #a83a09;
+  --ghn-primary-10: #7a2b07;
+
+  /* --- Secondary / info / link (GHN teal) --- */
+  --ghn-secondary: #006fad;
+  --ghn-info: #006fad;
+  --ghn-link: #006fad;
+
+  /* --- Neutrals (Zinc) --- */
+  --ghn-text: #09090b;
+  --ghn-text-muted: #52525b;
+  --ghn-placeholder: #71717a;
+  --ghn-text-disabled: #71717a;
+  --ghn-text-inverse: #fafafa;
+  --ghn-inverse: #fafafa;
+  --ghn-border: #d4d4d8;
+  --ghn-bg-subtle: #fafafa;
+  --ghn-white: #ffffff;
+
+  /* --- Status --- */
+  --ghn-success: #52c41a;
+  --ghn-warning: #faad14;
+  --ghn-error: #ff4d4f;
+
+  /* Status soft sets (dẫn xuất cho tint / alert / tag soft) */
+  --ghn-success-soft-bg: #f0fae6;
+  --ghn-success-soft-text: #2f7a0f;
+  --ghn-success-soft-border: #d4f0bd;
+  --ghn-warning-soft-bg: #fef6e0;
+  --ghn-warning-soft-text: #8a6105;
+  --ghn-warning-soft-border: #fae3a6;
+  --ghn-error-soft-bg: #ffeaea;
+  --ghn-error-soft-text: #c0282a;
+  --ghn-error-soft-border: #ffc9ca;
+  --ghn-error-ring: rgba(255, 77, 79, 0.18);
+  --ghn-info-soft-bg: #e6f3fa;
+  --ghn-info-soft-text: #006fad;
+  --ghn-info-soft-border: #b8ddf0;
+
+  /* Focus ring (cam, theo spec input) */
+  --ghn-focus-ring: rgba(255, 82, 0, 0.2);
+
+  /* --- Dark preview palette --- */
+  --ghn-dark-bg: #141414;
+  --ghn-dark-container: #1f1f1f;
+  --ghn-dark-primary: #dc4903;
+
+  /* --- Radius: MẶC ĐỊNH 8px ở mọi nơi --- */
+  --ghn-r-default: 8px;     /* button / input / select / card / surface */
+  --ghn-r-tag: 6px;         /* tag / pill / token */
+  --ghn-r-pill: 999px;      /* switch / chip tròn */
+  --ghn-r-card: 12px;       /* preview / anatomy surface lớn */
+
+  /* --- Spacing scale (4-grid) --- */
+  --ghn-s4: 4px;
+  --ghn-s8: 8px;
+  --ghn-s12: 12px;
+  --ghn-s16: 16px;
+  --ghn-s24: 24px;
+  --ghn-s32: 32px;
+  --ghn-s48: 48px;
+  --ghn-s64: 64px;
+
+  /* --- Type: CHỈ INTER --- */
+  --ghn-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --ghn-tracking: 0.1px;
+
+  /* --- Documentation chrome --- */
+  --doc-accent: var(--ghn-secondary);   /* links, active nav, active toc */
+  --doc-cover: #09090b;                  /* hero band near-black */
+  --doc-meta: #71717a;                   /* caption / meta text */
+  --doc-hairline: #e4e4e7;               /* 1px hairline divider */
+  --doc-preview-bg: #f4f4f5;             /* preview / anatomy surface (neutral-100: đủ đậm để tự tách nền, KHÔNG cần viền) */
+  --doc-soft-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --doc-knob-shadow: 0 1px 2px rgba(16, 24, 40, 0.12);
+
+  /* --- Layout --- */
+  --sidebar-w: 272px;
+  --toc-w: 200px;
+  --content-max: 900px;
+  --prose-max: 760px;
+
+  /* --- Alias cho các tên token cũ còn rải rác trong markup demo ---
+     Tránh var() lỗi (kế thừa sai màu); ánh xạ về token chuẩn đã định nghĩa. */
+  --ghn-soft: var(--ghn-primary-soft);
+  --ghn-secondary-text: var(--ghn-text-muted);
+  --ghn-neutral-text: var(--ghn-text);
+  --ghn-neutral-secondary: var(--ghn-text-muted);
+  --ghn-neutral-muted: var(--ghn-text-muted);
+  --ghn-neutral-subtle: var(--ghn-bg-subtle);
+  --ghn-neutral-border: var(--ghn-border);
+  --ghn-border-strong: #a1a1aa;
+  --ghn-hover: var(--ghn-bg-subtle);
+  --ghn-success-soft: var(--ghn-success-soft-bg);
+  --ghn-warning-soft: var(--ghn-warning-soft-bg);
+  --ghn-s20: 20px;
+  --ghn-dropdown-max-height: 264px;
+}

@@ -1,0 +1,84 @@
+{
+  "$note": "Mẫu UI phổ biến cho GHN; AI dùng để tổ hợp component đúng chuẩn.",
+  "recipes": [
+    {
+      "name": "Hộp thoại xác nhận",
+      "components": [
+        "Modal",
+        "Button"
+      ],
+      "when": "Xác nhận hành động phá huỷ (xoá đơn, huỷ giao)",
+      "rules": [
+        "Tiêu đề rõ ràng",
+        "Nút Primary = hành động chính, Hủy bên trái",
+        "Esc/overlay đóng"
+      ],
+      "tokens": [
+        "--ghn-primary",
+        "--ghn-r-default",
+        "--ghn-z-modal"
+      ]
+    },
+    {
+      "name": "Trang danh sách + lọc",
+      "components": [
+        "Input",
+        "Select",
+        "Button",
+        "Table",
+        "Pagination",
+        "Tag"
+      ],
+      "when": "Tra cứu/quản lý danh sách đơn",
+      "rules": [
+        "Thanh lọc trên cùng",
+        "Table có sticky header + scroll",
+        "Trạng thái đơn dùng Tag",
+        "Pagination dưới"
+      ],
+      "tokens": [
+        "--ghn-primary-soft",
+        "--ghn-border"
+      ]
+    },
+    {
+      "name": "Biểu mẫu submit",
+      "components": [
+        "Form",
+        "Input",
+        "Select",
+        "Checkbox",
+        "Button"
+      ],
+      "when": "Thu thập thông tin (người nhận, địa chỉ)",
+      "rules": [
+        "Nhãn rõ + bắt buộc *",
+        "Lỗi inline màu error",
+        "Nút submit Primary + loading khi gửi"
+      ],
+      "tokens": [
+        "--ghn-error",
+        "--ghn-focus-ring"
+      ]
+    },
+    {
+      "name": "Thông báo phản hồi",
+      "components": [
+        "Alert",
+        "Notification",
+        "Message"
+      ],
+      "when": "Phản hồi kết quả thao tác",
+      "rules": [
+        "Inline page → Alert; nổi góc → Notification; nhẹ tức thời → Message",
+        "Màu theo trạng thái",
+        "aria-live"
+      ],
+      "tokens": [
+        "--ghn-success",
+        "--ghn-warning",
+        "--ghn-error"
+      ]
+    }
+  ]
+}

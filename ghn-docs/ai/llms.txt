@@ -1,0 +1,116 @@
+# GHN Design System
+
+> Chuẩn GHN trên Ant Design v6. Import component từ `antd` (theme GHN qua ConfigProvider — xem `AGENTS.md`). Theme chỉ qua design token; không hardcode hex/px. Chỉ font Inter, radius mặc định 8, icon FontAwesome 6 Pro.
+
+Brand: primary `#ff5200`, info/link `#006fad`. Catalog máy đọc: `ai/components.json`. Hướng dẫn đầy đủ (khi nào dùng/KHÔNG dùng, token, a11y, nền tảng): `ai/guide.md`. Props từng component: `ai/llms-full.txt`. Schema: `component-schema.json`. Recipes: `ai/recipes.json`. Quy tắc bắt buộc cho AI: `AGENTS.md` (gốc dự án).
+
+## Hướng dẫn
+
+- [Khả năng tiếp cận](https://ghn-vn.github.io/design-system/accessibility.html): Cam kết WCAG 2.1 AA và cách áp dụng trong GHN DS. _(Ổn định)_
+- [Nhật ký thay đổi](https://ghn-vn.github.io/design-system/changelog.html): Lịch sử phiên bản của GHN Design System. _(Ổn định)_
+- [Bắt đầu](https://ghn-vn.github.io/design-system/getting-started.html): Cách dùng hệ thống cho Designer, Developer và PM. _(Ổn định)_
+
+## Điều hướng
+
+- [Affix](https://ghn-vn.github.io/design-system/affix.html): Ghim một phần tử ở vị trí cố định trên màn hình khi người dùng cuộn trang. _(Kế thừa)_
+- [Anchor](https://ghn-vn.github.io/design-system/anchor.html): Mục lục neo tới các phần trong trang. _(Kế thừa)_
+- [BackTop](https://ghn-vn.github.io/design-system/back-top.html): Nút cuộn nhanh về đầu trang, xuất hiện khi người dùng đã cuộn xuống đủ xa. _(Kế thừa)_
+- [Breadcrumb](https://ghn-vn.github.io/design-system/breadcrumb.html): Cho biết vị trí trong cấu trúc phân cấp. _(Kế thừa)_
+- [Dropdown / Context menu](https://ghn-vn.github.io/design-system/dropdown.html): Danh sách hành động hiện từ một điểm kích hoạt. _(Ổn định)_
+- [Menu](https://ghn-vn.github.io/design-system/menu.html): Điều hướng chính dọc/ngang, có cấp con. _(Ổn định)_
+- [Pagination](https://ghn-vn.github.io/design-system/pagination.html): Chia dữ liệu dài thành nhiều trang. _(Kế thừa)_
+- [Steps](https://ghn-vn.github.io/design-system/steps.html): Hiển thị tiến trình qua các bước tuần tự. _(Kế thừa)_
+
+## Phản hồi
+
+- [Alert](https://ghn-vn.github.io/design-system/alert.html): Thông báo theo ngữ cảnh ngay trong trang. _(Ổn định)_
+- [Drawer](https://ghn-vn.github.io/design-system/drawer.html): Bảng trượt từ cạnh màn hình cho nội dung phụ. _(Kế thừa)_
+- [Message](https://ghn-vn.github.io/design-system/message.html): Thông báo nhẹ ở đỉnh màn hình, tự ẩn. _(Kế thừa)_
+- [Modal](https://ghn-vn.github.io/design-system/modal.html): Hộp thoại chặn nền để tập trung một tác vụ. _(Ổn định)_
+- [Notification](https://ghn-vn.github.io/design-system/notification.html): Thông báo nổi ở góc, tự ẩn sau vài giây. _(Kế thừa)_
+- [Popconfirm](https://ghn-vn.github.io/design-system/popconfirm.html): Hỏi xác nhận nhanh ngay tại điểm thao tác. _(Kế thừa)_
+- [Progress](https://ghn-vn.github.io/design-system/progress.html): Cho biết tiến độ của một tác vụ. _(Kế thừa)_
+- [Result](https://ghn-vn.github.io/design-system/result.html): Trang kết quả sau một tác vụ (thành công/lỗi). _(Kế thừa)_
+- [Skeleton](https://ghn-vn.github.io/design-system/skeleton.html): Khối giữ chỗ nhấp nháy khi đang tải nội dung. _(Kế thừa)_
+- [Spin](https://ghn-vn.github.io/design-system/spin.html): Vòng xoay báo đang tải. _(Kế thừa)_
+- [Tour](https://ghn-vn.github.io/design-system/tour.html): Hướng dẫn từng bước làm nổi bật phần tử. _(Kế thừa)_
+- [Watermark](https://ghn-vn.github.io/design-system/watermark.html): Phủ chữ/logo mờ lên nội dung để bảo vệ. _(Kế thừa)_
+
+## Nhập liệu
+
+- [AutoComplete](https://ghn-vn.github.io/design-system/auto-complete.html): Gợi ý hoàn thành khi gõ vào ô tìm kiếm. _(Kế thừa)_
+- [Cascader](https://ghn-vn.github.io/design-system/cascader.html): Chọn giá trị phân cấp qua các cột liên tiếp. _(Kế thừa)_
+- [Checkbox](https://ghn-vn.github.io/design-system/checkbox.html): Chọn nhiều mục độc lập trong một nhóm. _(Ổn định)_
+- [Color Picker](https://ghn-vn.github.io/design-system/color-picker.html): Chọn màu qua bảng màu và ô nhập HEX. _(Kế thừa)_
+- [Date Picker](https://ghn-vn.github.io/design-system/date-picker.html): Chọn ngày/khoảng ngày qua lịch thả xuống. _(Kế thừa)_
+- [Form](https://ghn-vn.github.io/design-system/form.html): Bố cục nhãn–trường nhất quán kèm kiểm tra hợp lệ. _(Kế thừa)_
+- [Input Number](https://ghn-vn.github.io/design-system/input-number.html): Nhập số có nút tăng/giảm và bước nhảy. _(Kế thừa)_
+- [Input](https://ghn-vn.github.io/design-system/input.html): Ô nhập liệu một dòng kèm nhãn và trợ giúp. _(Ổn định)_
+- [Mentions](https://ghn-vn.github.io/design-system/mentions.html): Gắn thẻ người dùng bằng ký tự @ trong văn bản. _(Kế thừa)_
+- [Radio](https://ghn-vn.github.io/design-system/radio.html): Chọn duy nhất một mục trong nhóm. _(Ổn định)_
+- [Rate](https://ghn-vn.github.io/design-system/rate.html): Chấm điểm bằng dãy biểu tượng sao. _(Kế thừa)_
+- [Select](https://ghn-vn.github.io/design-system/select.html): Chọn một hoặc nhiều giá trị, hỗ trợ thẻ gỡ. _(Ổn định)_
+- [Slider](https://ghn-vn.github.io/design-system/slider.html): Chọn giá trị hoặc khoảng trên dải liên tục. _(Kế thừa)_
+- [Switch](https://ghn-vn.github.io/design-system/switch.html): Bật/tắt tức thì, áp dụng ngay không cần xác nhận. _(Ổn định)_
+- [Time Picker](https://ghn-vn.github.io/design-system/time-picker.html): Chọn giờ/phút/giây qua cột cuộn. _(Kế thừa)_
+- [Transfer](https://ghn-vn.github.io/design-system/transfer.html): Chuyển mục giữa hai danh sách nguồn–đích. _(Kế thừa)_
+- [TreeSelect](https://ghn-vn.github.io/design-system/tree-select.html): Chọn giá trị từ cây phân cấp trong dropdown. _(Kế thừa)_
+- [Upload](https://ghn-vn.github.io/design-system/upload.html): Tải tệp qua nút chọn hoặc kéo–thả. _(Kế thừa)_
+
+## Hiển thị dữ liệu
+
+- [Avatar](https://ghn-vn.github.io/design-system/avatar.html): Đại diện người dùng bằng ảnh, chữ cái hoặc icon. _(Ổn định)_
+- [Badge](https://ghn-vn.github.io/design-system/badge.html): Chấm hoặc số nhỏ báo trạng thái/đếm. _(Kế thừa)_
+- [Calendar](https://ghn-vn.github.io/design-system/calendar.html): Lịch tháng/năm hiển thị và chọn ngày, gắn sự kiện. _(Kế thừa)_
+- [Card](https://ghn-vn.github.io/design-system/card.html): Khối nội dung gom nhóm với tiêu đề, thân, hành động. _(Kế thừa)_
+- [Carousel](https://ghn-vn.github.io/design-system/carousel.html): Trình chiếu nội dung trượt ngang theo slide. _(Kế thừa)_
+- [Collapse](https://ghn-vn.github.io/design-system/collapse.html): Thu gọn/mở rộng nội dung theo từng mục. _(Kế thừa)_
+- [Descriptions](https://ghn-vn.github.io/design-system/descriptions.html): Bảng cặp nhãn–giá trị mô tả chi tiết. _(Kế thừa)_
+- [Empty](https://ghn-vn.github.io/design-system/empty.html): Trạng thái rỗng khi không có dữ liệu. _(Kế thừa)_
+- [Image](https://ghn-vn.github.io/design-system/image.html): Hiển thị ảnh có xem phóng to và dự phòng. _(Kế thừa)_
+- [List](https://ghn-vn.github.io/design-system/list.html): Danh sách mục đồng nhất, có thể kèm thao tác. _(Kế thừa)_
+- [Popover](https://ghn-vn.github.io/design-system/popover.html): Khung nổi chứa nội dung phong phú khi click/hover. _(Kế thừa)_
+- [QR Code](https://ghn-vn.github.io/design-system/qr-code.html): Mã QR cho liên kết hoặc dữ liệu, có logo giữa. _(Kế thừa)_
+- [Segmented](https://ghn-vn.github.io/design-system/segmented.html): Bộ chọn phân đoạn cho 2–5 lựa chọn loại trừ. _(Kế thừa)_
+- [Statistic](https://ghn-vn.github.io/design-system/statistic.html): Hiển thị số liệu nổi bật kèm nhãn và xu hướng. _(Kế thừa)_
+- [Table](https://ghn-vn.github.io/design-system/table.html): Trình bày dữ liệu hàng–cột, sắp xếp, phân trang. _(Kế thừa)_
+- [Tabs](https://ghn-vn.github.io/design-system/tabs.html): Chuyển giữa các nhóm nội dung cùng cấp. _(Kế thừa)_
+- [Tag / Chips](https://ghn-vn.github.io/design-system/tag.html): Nhãn nhỏ phân loại, lọc hoặc gắn trạng thái. _(Ổn định)_
+- [Timeline](https://ghn-vn.github.io/design-system/timeline.html): Dòng thời gian các sự kiện theo thứ tự. _(Kế thừa)_
+- [Tooltip](https://ghn-vn.github.io/design-system/tooltip.html): Chú thích ngắn khi hover/focus. _(Kế thừa)_
+- [Tree](https://ghn-vn.github.io/design-system/tree.html): Cấu trúc cây phân cấp, mở rộng và chọn. _(Kế thừa)_
+
+## Nền tảng
+
+- [Đường viền](https://ghn-vn.github.io/design-system/border.html): Độ dày và màu đường viền để phân tách và nhấn. _(Ổn định)_
+- [Điểm ngắt & Lưới](https://ghn-vn.github.io/design-system/breakpoints.html): Hệ điểm ngắt responsive và lưới 24 cột, mobile-first. _(Ổn định)_
+- [Màu sắc](https://ghn-vn.github.io/design-system/color.html): Cam là màu thương hiệu — điểm nhấn duy nhất; phần còn lại trung tính. _(Ổn định)_
+- [Chế độ tối](https://ghn-vn.github.io/design-system/dark-mode.html): Bảng màu nền tối phái sinh từ cùng seed, giữ thương hiệu. _(Ổn định)_
+- [Đổ bóng](https://ghn-vn.github.io/design-system/elevation.html): Vài cấp đổ bóng nhẹ để phân tầng bề mặt, không lạm dụng. _(Ổn định)_
+- [Biểu tượng](https://ghn-vn.github.io/design-system/icons.html): Bộ icon FontAwesome 6 Pro, đồng bộ cỡ và màu theo token. _(Ổn định)_
+- [Trạng thái tương tác](https://ghn-vn.github.io/design-system/interaction-states.html): Ma trận hover/focus/active/disabled/loading nhất quán. _(Ổn định)_
+- [Chuyển động](https://ghn-vn.github.io/design-system/motion.html): Thời lượng và đường cong chuyển động nhất quán, tinh tế. _(Ổn định)_
+- [Độ mờ](https://ghn-vn.github.io/design-system/opacity.html): Các mức độ mờ chuẩn cho disabled, overlay và văn bản phụ. _(Ổn định)_
+- [Khoảng cách & Bo góc](https://ghn-vn.github.io/design-system/spacing-radius.html): Lưới 4px và bo góc mặc định 8px tạo nhịp điệu nhất quán. _(Ổn định)_
+- [Kiểu chữ](https://ghn-vn.github.io/design-system/typography.html): Inter là phông chữ duy nhất, thang cỡ rõ ràng và dễ đọc. _(Ổn định)_
+- [Phân lớp (Z-index)](https://ghn-vn.github.io/design-system/zindex.html): Thang z-index chuẩn để xếp lớp các bề mặt nổi. _(Ổn định)_
+
+## Cơ bản
+
+- [Button](https://ghn-vn.github.io/design-system/button.html): Nút kích hoạt hành động; mỗi màn hình một hành động chính. _(Ổn định)_
+- [Command (Bảng lệnh)](https://ghn-vn.github.io/design-system/command.html): Bảng lệnh tìm nhanh và thực thi hành động bằng bàn phím. _(Ổn định)_
+- [Float Button](https://ghn-vn.github.io/design-system/float-button.html): Nút nổi cố định góc màn hình cho hành động nhanh. _(Kế thừa)_
+
+## Bố cục
+
+- [Divider](https://ghn-vn.github.io/design-system/divider.html): Đường kẻ phân tách nội dung theo chiều ngang hoặc dọc. _(Kế thừa)_
+- [Flex](https://ghn-vn.github.io/design-system/flex.html): Bố cục linh hoạt theo trục, căn chỉnh và khoảng cách. _(Kế thừa)_
+- [Grid (Row/Col)](https://ghn-vn.github.io/design-system/grid.html): Hệ lưới 24 cột responsive cho bố cục trang. _(Kế thừa)_
+- [Layout](https://ghn-vn.github.io/design-system/layout.html): Khung bố cục trang: Header, Sider, Content, Footer. _(Kế thừa)_
+- [Space](https://ghn-vn.github.io/design-system/space.html): Khoảng cách đều giữa các phần tử liền kề. _(Kế thừa)_
+- [Splitter](https://ghn-vn.github.io/design-system/splitter.html): Chia vùng thành các ô kéo giãn được. _(Kế thừa)_
+
+## Tổng quan
+
+- [Giới thiệu](https://ghn-vn.github.io/design-system/index.html): Ngôn ngữ thiết kế dùng chung để xây sản phẩm GHN nhất quán, dễ tiếp cận. _(Ổn định)_
+

@@ -1,0 +1,60 @@
+/* Base / reset layer for the CS Ticket Management app.
+   All colour, spacing, radius and font values reference GHN tokens (var(--ghn-*)). */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ghn-font);
+  font-size: var(--ghn-primitive-font-size-body, 14px);
+  line-height: 22px;
+  letter-spacing: var(--ghn-tracking);
+  color: var(--ghn-text);
+  background: var(--ghn-bg-subtle);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--ghn-link);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* thin neutral scrollbars to match the clean Figma surfaces */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ghn-border) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--ghn-border);
+  border-radius: var(--ghn-r-pill);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes ghn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

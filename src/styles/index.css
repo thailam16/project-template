@@ -1,0 +1,9 @@
+/* Style entry — import order matters:
+   1. tokens.css     → primitive + brand tokens (--ghn-primitive-*, --ghn-brand-*)
+   2. semantic.css   → semantic aliases that reference the primitives (--ghn-primary, --ghn-text, ...)
+   3. fontawesome.css→ FontAwesome 6 Pro @font-face + glyphs (the only allowed icon set)
+   4. global.css     → base reset, body typography, scrollbars */
+@import './tokens.css';
+@import './semantic.css';
+@import './fontawesome.css';
+@import './global.css';

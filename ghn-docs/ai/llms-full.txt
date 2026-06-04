@@ -1,0 +1,1437 @@
+# GHN Design System — Full reference
+
+## Khả năng tiếp cận (Hướng dẫn)
+
+Cam kết WCAG 2.1 AA và cách áp dụng trong GHN DS.
+
+## Affix (Điều hướng)
+
+Ghim một phần tử ở vị trí cố định trên màn hình khi người dùng cuộn trang.
+
+Import: `import { Affix } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| className | `string` | no | - |  |
+| offsetBottom | `number` | no | - | Triggered when the specified offset is reached from the bottom of the window |
+| offsetTop | `number` | no | - | Triggered when the specified offset is reached from the top of the window |
+| onChange | `((affixed?: boolean) => void)` | no | - | Callback function triggered when fixed state changes |
+| onTestUpdatePosition | `(() => void)` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| target | `(() => Window | HTMLElement | null)` | no | - | Set the element that Affix needs to listen to its scroll event, the value is a function that returns the corresponding DOM element |
+
+## Alert (Phản hồi)
+
+Thông báo theo ngữ cảnh ngay trong trang.
+
+Import: `import { Alert } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| action | `ReactNode` | no | - |  |
+| afterClose | `(() => void)` | no | - | @deprecated please use `closable.afterClose` instead. |
+| banner | `boolean` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; icon?: string; section?: string | undefined; title?: string | undefined; description?: string | undefined; actions?: string | undefined; close?: string | undefined; } | undefined> | ((info: { ...; }) => DeepClassNameType<...>)` | no | - |  |
+| closable | `boolean | (ClosableType & AriaAttributes & { onClose?: MouseEventHandler<HTMLButtonElement>; })` | no | - | Whether Alert can be closed |
+| closeIcon | `ReactNode` | no | - | @deprecated please use `closable.closeIcon` instead. |
+| closeText | `ReactNode` | no | - | @deprecated please use `closable.closeIcon` instead. Close text to show |
+| description | `ReactNode` | no | - | Additional content of Alert |
+| icon | `ReactNode` | no | - |  |
+| id | `string` | no | - |  |
+| message | `ReactNode` | no | - | @deprecated please use `title` instead. |
+| onClick | `MouseEventHandler<HTMLDivElement>` | no | - |  |
+| onClose | `MouseEventHandler<HTMLButtonElement>` | no | - | @deprecated please use `closable.onClose` instead. |
+| onMouseEnter | `MouseEventHandler<HTMLDivElement>` | no | - |  |
+| onMouseLeave | `MouseEventHandler<HTMLDivElement>` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| role | `string` | no | - | https://www.w3.org/TR/2014/REC-html5-20141028/dom.html#aria-role-attribute |
+| rootClassName | `string` | no | - |  |
+| showIcon | `boolean` | no | - | Whether to show icon |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; icon?: CSSProperties; section?: CSSProperties | undefined; title?: CSSProperties | undefined; description?: CSSProperties | undefined; actions?: CSSProperties | undefined; close?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStyle...` | no | - |  |
+| title | `ReactNode` | no | - | Content of Alert |
+| type | `enum` | no | - | Type of Alert styles, options:`success`, `info`, `warning`, `error` |
+| variant | `enum` | no | - | Variant of Alert style @since 6.4.0 |
+
+## Anchor (Điều hướng)
+
+Mục lục neo tới các phần trong trang.
+
+Import: `import { Anchor } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| affix | `boolean | Omit<AffixProps, "offsetTop" | "target" | "children">` | no | - |  |
+| bounds | `number` | no | - |  |
+| children | `ReactNode` | no | - | @deprecated Please use `items` instead. |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; item?: string; itemTitle?: string | undefined; indicator?: string | undefined; } | undefined> | ((info: { ...; }) => DeepClassNameType<...>)` | no | - |  |
+| direction | `enum` | no | - |  |
+| getContainer | `(() => AnchorContainer)` | no | - |  |
+| getCurrentAnchor | `((activeLink: string) => string)` | no | - | Return customize highlight anchor |
+| items | `AnchorLinkItemProps[]` | no | - |  |
+| offsetTop | `number` | no | - |  |
+| onChange | `((currentActiveLink: string) => void)` | no | - | Listening event when scrolling change active link |
+| onClick | `((e: MouseEvent<HTMLElement, MouseEvent>, link: { title: ReactNode; href: string; }) => void)` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| replace | `boolean` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| showInkInFixed | `boolean` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; item?: CSSProperties; itemTitle?: CSSProperties | undefined; indicator?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| targetOffset | `number` | no | - | Scroll to target offset value, if none, it's offsetTop prop value or 0. |
+
+## AutoComplete (Nhập liệu)
+
+Gợi ý hoàn thành khi gõ vào ô tìm kiếm.
+
+Import: `import { AutoComplete } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| bordered | `boolean` | no | - | @deprecated Use `variant` instead. |
+| classNames | `((info: { props: AutoCompleteProps<any, DefaultOptionType>; }) => DeepClassNameType<{ root?: string; prefix?: string; input?: string | undefined; placeholder?: string | undefined; content?: string | undefined; popup?: DeepClassNameType<...>; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| dataSource | `DataSourceItemType[]` | no | - | @deprecated Please use `options` instead |
+| disabled | `boolean` | no | - |  |
+| dropdownClassName | `string` | no | - | @deprecated Please use `classNames.popup.root` instead |
+| dropdownMatchSelectWidth | `number | boolean` | no | - | @deprecated Please use `popupMatchSelectWidth` instead |
+| dropdownRender | `((menu: ReactElement<unknown, string | JSXElementConstructor<any>>) => ReactElement<unknown, string | JSXElementConstructor<any>>)` | no | - | @deprecated Please use `popupRender` instead |
+| dropdownStyle | `CSSProperties` | no | - | @deprecated Please use `styles.popup.root` instead |
+| loadingIcon | `ReactNode` | no | - |  |
+| onDropdownVisibleChange | `((visible: boolean) => void)` | no | - | @deprecated Please use `onOpenChange` instead |
+| onOpenChange | `((visible: boolean) => void)` | no | - |  |
+| popupClassName | `string` | no | - | @deprecated Please use `classNames.popup.root` instead |
+| popupMatchSelectWidth | `number | boolean` | no | - |  |
+| popupRender | `((menu: ReactElement<unknown, string | JSXElementConstructor<any>>) => ReactElement<unknown, string | JSXElementConstructor<any>>)` | no | - |  |
+| prefix | `ReactNode` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| showArrow | `boolean` | no | - | @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null. |
+| showSearch | `boolean | (SearchConfig<OptionType> & { searchIcon?: ReactNode; })` | no | - |  |
+| size | `enum` | no | - |  |
+| status | `enum` | no | - |  |
+| styles | `((info: { props: AutoCompleteProps<any, DefaultOptionType>; }) => DeepStylesType<{ root?: CSSProperties; prefix?: CSSProperties; input?: CSSProperties | undefined; placeholder?: CSSProperties | undefined; content?: CSSProperties | undefined; popup?: DeepStylesType<...>; } | undefined>) | Deep...` | no | - |  |
+| suffixIcon | `ReactNode` | no | - |  |
+| variant | `enum` | no | "outlined" | @since 5.13.0 |
+
+## Avatar (Hiển thị dữ liệu)
+
+Đại diện người dùng bằng ảnh, chữ cái hoặc icon.
+
+Import: `import { Avatar } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| alt | `string` | no | - |  |
+| className | `string` | no | - |  |
+| crossOrigin | `enum` | no | - |  |
+| draggable | `boolean | "true" | "false"` | no | - |  |
+| gap | `number` | no | - |  |
+| icon | `ReactNode` | no | - | Icon to be used in avatar |
+| onClick | `((e?: MouseEvent<HTMLElement, MouseEvent>) => void)` | no | - |  |
+| onError | `(() => boolean)` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| shape | `enum` | no | - | Shape of avatar, options: `circle`, `square` |
+| size | `AvatarSize` | no | - |  |
+| src | `ReactNode` | no | - | Src of image avatar |
+| srcSet | `string` | no | - | Srcset of image avatar |
+| style | `CSSProperties` | no | - |  |
+
+## BackTop (Điều hướng)
+
+Nút cuộn nhanh về đầu trang, xuất hiện khi người dùng đã cuộn xuống đủ xa.
+
+Import: `import { BackTop } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| className | `string` | no | - |  |
+| duration | `number` | no | - |  |
+| onClick | `MouseEventHandler<HTMLElement>` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| target | `(() => HTMLElement | Window | Document)` | no | - |  |
+| visibilityHeight | `number` | no | - |  |
+
+## Badge (Hiển thị dữ liệu)
+
+Chấm hoặc số nhỏ báo trạng thái/đếm.
+
+Import: `import { Badge } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: BadgeProps; }) => DeepClassNameType<{ root?: string; indicator?: string; } | undefined>) | DeepClassNameType<{ root?: string | undefined; indicator?: string | undefined; } | undefined>` | no | - |  |
+| color | `LiteralUnion<"blue" | "purple" | "cyan" | "green" | "magenta" | "pink" | "red" | "orange" | "yellow" | "volcano" | "geekblue" | "lime" | "gold">` | no | - |  |
+| count | `ReactNode` | no | - | Number to show in badge |
+| dot | `boolean` | no | - | Whether to show red dot without number |
+| offset | `[string | number, string | number]` | no | - |  |
+| overflowCount | `number` | no | - | Max count to show |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| scrollNumberPrefixCls | `string` | no | - |  |
+| showZero | `boolean` | no | - |  |
+| size | `enum` | no | - | Note: `default` is deprecated and will be removed in v7, please use `medium` instead. |
+| status | `enum` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: BadgeProps; }) => DeepStylesType<{ root?: CSSProperties; indicator?: CSSProperties; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| text | `ReactNode` | no | - |  |
+| title | `string` | no | - |  |
+
+## Đường viền (Nền tảng)
+
+Độ dày và màu đường viền để phân tách và nhấn.
+
+## Breadcrumb (Điều hướng)
+
+Cho biết vị trí trong cấu trúc phân cấp.
+
+Import: `import { Breadcrumb } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; item?: string; separator?: string | undefined; } | undefined> | ((info: { props: BreadcrumbProps<T>; }) => DeepClassNameType<...>)` | no | - |  |
+| dropdownIcon | `ReactNode` | no | - |  |
+| itemRender | `((route: Partial<BreadcrumbItemType & BreadcrumbSeparatorType>, params: T, routes: Partial<BreadcrumbItemType & BreadcrumbSeparatorType>[], paths: string[]) => ReactNode)` | no | - |  |
+| items | `Partial<BreadcrumbItemType & BreadcrumbSeparatorType>[]` | no | - |  |
+| params | `AnyObject` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| routes | `Partial<BreadcrumbItemType & BreadcrumbSeparatorType>[]` | no | - | @deprecated Please use `items` instead |
+| separator | `ReactNode` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; item?: CSSProperties; separator?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+
+## Điểm ngắt & Lưới (Nền tảng)
+
+Hệ điểm ngắt responsive và lưới 24 cột, mobile-first.
+
+## Button (Cơ bản)
+
+Nút kích hoạt hành động; mỗi màn hình một hành động chính.
+
+Import: `import { Button } from 'antd';`
+
+## Calendar (Hiển thị dữ liệu)
+
+Lịch tháng/năm hiển thị và chọn ngày, gắn sự kiện.
+
+Import: `import { Calendar } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| cellRender | `((date: Dayjs, info: CellRenderInfo<Dayjs>) => ReactNode)` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; header?: string; body?: string | undefined; content?: string | undefined; item?: string | undefined; itemContent?: string | undefined; } | undefined> | ((info: { ...; }) => DeepClassNameType<...>)` | no | - |  |
+| dateCellRender | `((date: Dayjs) => ReactNode)` | no | - | @deprecated Please use cellRender instead. |
+| dateFullCellRender | `((date: Dayjs) => ReactNode)` | no | - | @deprecated Please use fullCellRender instead. |
+| defaultValue | `Dayjs` | no | - |  |
+| disabledDate | `((date: Dayjs) => boolean)` | no | - |  |
+| fullCellRender | `((date: Dayjs, info: CellRenderInfo<Dayjs>) => ReactNode)` | no | - |  |
+| fullscreen | `boolean` | no | - |  |
+| headerRender | `HeaderRender<Dayjs>` | no | - |  |
+| locale | `PickerLocale` | no | - |  |
+| mode | `enum` | no | - |  |
+| monthCellRender | `((date: Dayjs) => ReactNode)` | no | - | @deprecated Please use cellRender instead. |
+| monthFullCellRender | `((date: Dayjs) => ReactNode)` | no | - | @deprecated Please use fullCellRender instead. |
+| onChange | `((date: Dayjs) => void)` | no | - |  |
+| onPanelChange | `((date: Dayjs, mode: CalendarMode) => void)` | no | - |  |
+| onSelect | `((date: Dayjs, selectInfo: SelectInfo) => void)` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| showWeek | `boolean` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; header?: CSSProperties; body?: CSSProperties | undefined; content?: CSSProperties | undefined; item?: CSSProperties | undefined; itemContent?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| validRange | `[Dayjs, Dayjs]` | no | - |  |
+| value | `Dayjs` | no | - |  |
+
+## Card (Hiển thị dữ liệu)
+
+Khối nội dung gom nhóm với tiêu đề, thân, hành động.
+
+Import: `import { Card } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| actions | `ReactNode[]` | no | - |  |
+| activeTabKey | `string` | no | - |  |
+| bodyStyle | `CSSProperties` | no | - | @deprecated Please use `styles.body` instead |
+| bordered | `boolean` | no | - | @deprecated Please use `variant` instead |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: CardProps; }) => DeepClassNameType<{ root?: string; header?: string; body?: string | undefined; extra?: string | undefined; title?: string | undefined; actions?: string | undefined; cover?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| cover | `ReactNode` | no | - |  |
+| defaultActiveTabKey | `string` | no | - |  |
+| extra | `ReactNode` | no | - |  |
+| headStyle | `CSSProperties` | no | - | @deprecated Please use `styles.header` instead |
+| hoverable | `boolean` | no | - |  |
+| id | `string` | no | - |  |
+| loading | `boolean` | no | - |  |
+| onTabChange | `((key: string) => void)` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| size | `enum` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: CardProps; }) => DeepStylesType<{ root?: CSSProperties; header?: CSSProperties; body?: CSSProperties | undefined; extra?: CSSProperties | undefined; title?: CSSProperties | undefined; actions?: CSSProperties | undefined; cover?: CSSProperties | undefined; } | undefined>) | De...` | no | - |  |
+| tabBarExtraContent | `TabBarExtraContent` | no | - |  |
+| tabList | `CardTabListType[]` | no | - |  |
+| tabProps | `TabsProps` | no | - |  |
+| title | `ReactNode` | no | - |  |
+| type | `enum` | no | - |  |
+| variant | `enum` | no | - |  |
+
+## Carousel (Hiển thị dữ liệu)
+
+Trình chiếu nội dung trượt ngang theo slide.
+
+Import: `import { Carousel } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| autoplay | `boolean | { dotDuration?: boolean; }` | no | - |  |
+| dotPlacement | `enum` | no | - |  |
+| dotPosition | `enum` | no | - | @deprecated Please use `dotPlacement` instead |
+| dots | `boolean | { className?: string; }` | no | - |  |
+| effect | `enum` | no | - |  |
+| id | `string` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| slickGoTo | `number` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| waitForAnimate | `boolean` | no | - |  |
+
+## Cascader (Nhập liệu)
+
+Chọn giá trị phân cấp qua các cột liên tiếp.
+
+Import: `import { Cascader } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| bordered | `boolean` | no | - | @deprecated Use `variant` instead. |
+| classNames | `((info: { props: CascaderProps<DefaultOptionType, string, boolean>; }) => DeepClassNameType<{ root?: string; prefix?: string; suffix?: string | undefined; ... 6 more ...; popup?: { ...; } | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| disabled | `boolean` | no | - |  |
+| dropdownClassName | `string` | no | - | @deprecated Please use `classNames.popup.root` instead |
+| dropdownMenuColumnStyle | `CSSProperties` | no | - | @deprecated Please use `styles.popup.listItem` instead |
+| dropdownRender | `((menu: ReactElement<unknown, string | JSXElementConstructor<any>>) => ReactElement<unknown, string | JSXElementConstructor<any>>)` | no | - | @deprecated Please use `popupRender` instead |
+| dropdownStyle | `CSSProperties` | no | - | @deprecated Please use `styles.popup.root` instead |
+| multiple | `boolean` | no | - |  |
+| onDropdownVisibleChange | `((visible: boolean) => void)` | no | - | @deprecated Please use `onOpenChange` instead |
+| onOpenChange | `((visible: boolean) => void)` | no | - |  |
+| onPopupVisibleChange | `((visible: boolean) => void)` | no | - | @deprecated Please use `onOpenChange` instead |
+| options | `OptionType[]` | no | - |  |
+| placement | `enum` | no | - |  |
+| popupClassName | `string` | no | - | @deprecated Please use `classNames.popup.root` instead |
+| popupMenuColumnStyle | `CSSProperties` | no | - | @deprecated Please use `styles.popup.listItem` instead |
+| popupRender | `((menu: ReactElement<unknown, string | JSXElementConstructor<any>>) => ReactElement<unknown, string | JSXElementConstructor<any>>)` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| showArrow | `boolean` | no | - | @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null. |
+| showSearch | `boolean | (SearchConfig<OptionType, keyof OptionType> & { searchIcon?: ReactNode; })` | no | - |  |
+| size | `enum` | no | - |  |
+| status | `enum` | no | - |  |
+| styles | `((info: { props: CascaderProps<DefaultOptionType, string, boolean>; }) => DeepStylesType<{ root?: CSSProperties; prefix?: CSSProperties; ... 7 more ...; popup?: { ...; } | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| suffixIcon | `ReactNode` | no | - |  |
+| variant | `enum` | no | "outlined" | @since 5.13.0 |
+
+## Nhật ký thay đổi (Hướng dẫn)
+
+Lịch sử phiên bản của GHN Design System.
+
+## Checkbox (Nhập liệu)
+
+Chọn nhiều mục độc lập trong một nhóm.
+
+Import: `import { Checkbox } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| autoFocus | `boolean` | no | - |  |
+| checked | `boolean` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: CheckboxProps; }) => DeepClassNameType<{ root?: string; icon?: string; label?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| defaultChecked | `boolean` | no | - |  |
+| disabled | `boolean` | no | - |  |
+| id | `string` | no | - |  |
+| indeterminate | `boolean` | no | - |  |
+| name | `string` | no | - |  |
+| onBlur | `FocusEventHandler<HTMLInputElement>` | no | - |  |
+| onChange | `((e: CheckboxChangeEvent) => void)` | no | - |  |
+| onClick | `MouseEventHandler<HTMLElement>` | no | - |  |
+| onFocus | `FocusEventHandler<HTMLInputElement>` | no | - |  |
+| onKeyDown | `KeyboardEventHandler<HTMLElement>` | no | - |  |
+| onKeyPress | `KeyboardEventHandler<HTMLElement>` | no | - |  |
+| onMouseEnter | `MouseEventHandler<HTMLElement>` | no | - |  |
+| onMouseLeave | `MouseEventHandler<HTMLElement>` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| required | `boolean` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| skipGroup | `boolean` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: CheckboxProps; }) => DeepStylesType<{ root?: CSSProperties; icon?: CSSProperties; label?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| tabIndex | `number` | no | - |  |
+| title | `string` | no | - |  |
+| type | `string` | no | - |  |
+| value | `any` | no | - |  |
+
+## Collapse (Hiển thị dữ liệu)
+
+Thu gọn/mở rộng nội dung theo từng mục.
+
+Import: `import { Collapse } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| accordion | `boolean` | no | - | 手风琴效果 |
+| activeKey | `string | number | (string | number)[]` | no | - |  |
+| bordered | `boolean` | no | - |  |
+| children | `ReactNode` | no | - | @deprecated use `items` instead |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: CollapseProps; }) => DeepClassNameType<{ root?: string; header?: string; title?: string | undefined; body?: string | undefined; icon?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| collapsible | `enum` | no | - |  |
+| defaultActiveKey | `string | number | (string | number)[]` | no | - |  |
+| destroyInactivePanel | `boolean` | no | - | @deprecated Please use `destroyOnHidden` instead |
+| destroyOnHidden | `boolean` | no | - | @since 5.25.0 |
+| expandIcon | `((panelProps: PanelProps) => ReactNode)` | no | - |  |
+| expandIconPlacement | `enum` | no | - |  |
+| expandIconPosition | `enum` | no | - | @deprecated Please use `expandIconPlacement` instead |
+| ghost | `boolean` | no | - |  |
+| onChange | `((key: string[]) => void)` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| size | `enum` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: CollapseProps; }) => DeepStylesType<{ root?: CSSProperties; header?: CSSProperties; title?: CSSProperties | undefined; body?: CSSProperties | undefined; icon?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+
+## Color Picker (Nhập liệu)
+
+Chọn màu qua bảng màu và ô nhập HEX.
+
+Import: `import { Color } from 'antd';`
+
+## Màu sắc (Nền tảng)
+
+Cam là màu thương hiệu — điểm nhấn duy nhất; phần còn lại trung tính.
+
+## Command (Bảng lệnh) (Cơ bản)
+
+Bảng lệnh tìm nhanh và thực thi hành động bằng bàn phím.
+
+## Chế độ tối (Nền tảng)
+
+Bảng màu nền tối phái sinh từ cùng seed, giữ thương hiệu.
+
+## Date Picker (Nhập liệu)
+
+Chọn ngày/khoảng ngày qua lịch thả xuống.
+
+Import: `import { Date } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| bordered | `boolean` | no | - | @deprecated Use `variant` instead |
+| classNames | `DeepClassNameType<{ root?: string; prefix?: string; input?: string | undefined; suffix?: string | undefined; popup?: string | { root?: string | undefined; header?: string | undefined; ... 4 more ...; container?: string | undefined; } | undefined; } | undefined> | ((info: { ...; }) => DeepClas...` | no | - |  |
+| defaultValue | `MultiValueType<ValueType, IsMultiple> | null` | no | - |  |
+| dropdownClassName | `string` | no | - | @deprecated `dropdownClassName` is deprecated which will be removed in next major version.Please use `classNames.popup.root` instead. |
+| locale | `PickerLocale` | no | - |  |
+| multiple | `boolean` | no | - | Not support `time` or `datetime` picker |
+| onChange | `((date: MultiValueType<ValueType, IsMultiple> | null, dateString: MultiValueType<string, IsMultiple> | null) => void)` | no | - |  |
+| onOk | `((date: MultiValueType<ValueType, IsMultiple>) => void)` | no | - |  |
+| placement | `enum` | no | - |  |
+| popupClassName | `string` | no | - | @deprecated please use `classNames.popup.root` instead |
+| popupStyle | `CSSProperties` | no | - | @deprecated please use `styles.popup.root` instead |
+| rootClassName | `string` | no | - |  |
+| size | `enum` | no | - |  |
+| status | `enum` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; prefix?: CSSProperties; input?: CSSProperties | undefined; suffix?: CSSProperties | undefined; popup?: { ...; } | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| value | `MultiValueType<ValueType, IsMultiple> | null` | no | - |  |
+| variant | `enum` | no | "outlined" | @since 5.13.0 |
+
+## Descriptions (Hiển thị dữ liệu)
+
+Bảng cặp nhãn–giá trị mô tả chi tiết.
+
+Import: `import { Descriptions } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| bordered | `boolean` | no | - |  |
+| children | `ReactNode` | no | - | @deprecated use `items` instead |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; header?: string; title?: string | undefined; extra?: string | undefined; label?: string | undefined; content?: string | undefined; } | undefined> | ((info: { ...; }) => DeepClassNameType<...>)` | no | - |  |
+| colon | `boolean` | no | - |  |
+| column | `number | Partial<Record<"xxxl" | "xxl" | "xl" | "lg" | "md" | "sm" | "xs", number>>` | no | - |  |
+| contentStyle | `CSSProperties` | no | - | @deprecated use `styles.content` instead |
+| extra | `ReactNode` | no | - |  |
+| id | `string` | no | - |  |
+| items | `DescriptionsItemType[]` | no | - |  |
+| labelStyle | `CSSProperties` | no | - | @deprecated use `styles.label` instead |
+| layout | `enum` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| size | `enum` | no | - | Note: `default` is deprecated and will be removed in v7, please use `medium` instead. |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; header?: CSSProperties; title?: CSSProperties | undefined; extra?: CSSProperties | undefined; label?: CSSProperties | undefined; content?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| title | `ReactNode` | no | - |  |
+
+## Divider (Bố cục)
+
+Đường kẻ phân tách nội dung theo chiều ngang hoặc dọc.
+
+Import: `import { Divider } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; rail?: string; content?: string | undefined; } | undefined> | ((info: { props: DividerProps; }) => DeepClassNameType<...>)` | no | - |  |
+| dashed | `boolean` | no | - |  |
+| orientation | `enum` | no | - |  |
+| orientationMargin | `string | number` | no | - | @deprecated please use `styles.content.margin` |
+| plain | `boolean` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| size | `enum` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; rail?: CSSProperties; content?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| titlePlacement | `enum` | no | - |  |
+| type | `enum` | no | - | @deprecated please use `orientation` |
+| variant | `enum` | no | solid | @since 5.20.0 |
+| vertical | `boolean` | no | - |  |
+
+## Drawer (Phản hồi)
+
+Bảng trượt từ cạnh màn hình cho nội dung phụ.
+
+Import: `import { Drawer } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| afterOpenChange | `((open: boolean) => void)` | no | - |  |
+| bodyStyle | `CSSProperties` | no | - | @deprecated Please use `styles.body` instead |
+| classNames | `DeepClassNameType<{ root?: string; mask?: string; header?: string | undefined; title?: string | undefined; extra?: string | undefined; section?: string | undefined; body?: string | undefined; ... 4 more ...; content?: string | undefined; } | undefined> | ((info: { ...; }) => DeepClassNameType...` | no | - |  |
+| closable | `boolean | (ClosableType & AriaAttributes & { placement?: "start" | "end"; })` | no | - | Recommend to use closeIcon instead  e.g.  `<Drawer closeIcon={false} />` |
+| closeIcon | `ReactNode` | no | - |  |
+| contentWrapperStyle | `CSSProperties` | no | - | @deprecated Please use `styles.wrapper` instead |
+| destroyOnClose | `boolean` | no | - | @deprecated Please use `destroyOnHidden` instead |
+| destroyOnHidden | `boolean` | no | - | @since 5.25.0 |
+| drawerStyle | `CSSProperties` | no | - | @deprecated Please use `styles.content` instead |
+| extra | `ReactNode` | no | - |  |
+| focusable | `FocusableConfig` | no | - |  |
+| footer | `ReactNode` | no | - |  |
+| footerStyle | `CSSProperties` | no | - | @deprecated Please use `styles.footer` instead |
+| headerStyle | `CSSProperties` | no | - | @deprecated Please use `styles.header` instead |
+| loading | `boolean` | no | - |  |
+| mask | `MaskType` | no | - |  |
+| maskClosable | `boolean` | no | - | @deprecated Please use `mask.closable` instead |
+| maskStyle | `CSSProperties` | no | - | @deprecated Please use `styles.mask` instead |
+| open | `boolean` | no | - |  |
+| resizable | `boolean | DrawerResizableConfig` | no | - |  |
+| size | `string | number` | no | - | Size of the drawer (width for left/right placement, height for top/bottom placement) |
+| styles | `DeepStylesType<{ root?: CSSProperties; mask?: CSSProperties; header?: CSSProperties | undefined; title?: CSSProperties | undefined; ... 7 more ...; content?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| title | `ReactNode` | no | - |  |
+
+## Dropdown / Context menu (Điều hướng)
+
+Danh sách hành động hiện từ một điểm kích hoạt.
+
+Import: `import { Dropdown } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| align | `AlignType` | no | - |  |
+| arrow | `boolean | DropdownArrowOptions` | no | - |  |
+| autoAdjustOverflow | `boolean | AdjustOverflow` | no | - |  |
+| autoFocus | `boolean` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; item?: string; itemTitle?: string | undefined; itemIcon?: string | undefined; itemContent?: string | undefined; } | undefined> | ((info: { ...; }) => DeepClassNameType<...>)` | no | - |  |
+| destroyOnHidden | `boolean` | no | - | @since 5.25.0 |
+| destroyPopupOnHide | `boolean` | no | - | @deprecated Please use `destroyOnHidden` instead |
+| disabled | `boolean` | no | - |  |
+| dropdownRender | `((originNode: ReactNode) => ReactNode)` | no | - | @deprecated Please use `popupRender` instead |
+| forceRender | `boolean` | no | - |  |
+| getPopupContainer | `((triggerNode: HTMLElement) => HTMLElement)` | no | - |  |
+| menu | `(MenuProps & { activeKey?: string; })` | no | - |  |
+| mouseEnterDelay | `number` | no | - |  |
+| mouseLeaveDelay | `number` | no | - |  |
+| onOpenChange | `((open: boolean, info: { source: "menu" | "trigger"; }) => void)` | no | - |  |
+| open | `boolean` | no | - |  |
+| openClassName | `string` | no | - |  |
+| overlayClassName | `string` | no | - | @deprecated please use `classNames.root` instead. |
+| overlayStyle | `CSSProperties` | no | - | @deprecated please use `styles.root` instead. |
+| placement | `enum` | no | - |  |
+| popupRender | `((originNode: ReactNode) => ReactNode)` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; item?: CSSProperties; itemTitle?: CSSProperties | undefined; itemIcon?: CSSProperties | undefined; itemContent?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| transitionName | `string` | no | - |  |
+| trigger | `("click" | "hover" | "contextMenu")[]` | no | - |  |
+
+## Đổ bóng (Nền tảng)
+
+Vài cấp đổ bóng nhẹ để phân tầng bề mặt, không lạm dụng.
+
+## Empty (Hiển thị dữ liệu)
+
+Trạng thái rỗng khi không có dữ liệu.
+
+Import: `import { Empty } from 'antd';`
+
+## Flex (Bố cục)
+
+Bố cục linh hoạt theo trục, căn chỉnh và khoảng cách.
+
+Import: `import { Flex } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| align | `AlignItems` | no | - |  |
+| component | `CustomComponent<AnyObject>` | no | - |  |
+| flex | `Flex<string | number>` | no | - |  |
+| gap | `LiteralUnion<SizeType, Gap<string | number>>` | no | - |  |
+| justify | `JustifyContent` | no | - |  |
+| orientation | `enum` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| vertical | `boolean` | no | - |  |
+| wrap | `boolean | FlexWrap` | no | - |  |
+
+## Float Button (Cơ bản)
+
+Nút nổi cố định góc màn hình cho hành động nhanh.
+
+## Form (Nhập liệu)
+
+Bố cục nhãn–trường nhất quán kèm kiểm tra hợp lệ.
+
+Import: `import { Form } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| focusField | `(name: any) => void` | yes | - |  |
+| getFieldInstance | `(name: any) => any` | yes | - |  |
+| scrollToField | `(name: any, options?: ScrollFocusOptions | undefined) => void` | yes | - |  |
+
+## Bắt đầu (Hướng dẫn)
+
+Cách dùng hệ thống cho Designer, Developer và PM.
+
+## Grid (Row/Col) (Bố cục)
+
+Hệ lưới 24 cột responsive cho bố cục trang.
+
+Import: `import { Grid } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| flex | `FlexType` | no | - |  |
+| lg | `ColSpanType | ColSize` | no | - |  |
+| md | `ColSpanType | ColSize` | no | - |  |
+| offset | `ColSpanType` | no | - |  |
+| order | `ColSpanType` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| pull | `ColSpanType` | no | - |  |
+| push | `ColSpanType` | no | - |  |
+| sm | `ColSpanType | ColSize` | no | - |  |
+| span | `ColSpanType` | no | - |  |
+| xl | `ColSpanType | ColSize` | no | - |  |
+| xs | `ColSpanType | ColSize` | no | - |  |
+| xxl | `ColSpanType | ColSize` | no | - |  |
+| xxxl | `ColSpanType | ColSize` | no | - |  |
+
+## Biểu tượng (Nền tảng)
+
+Bộ icon FontAwesome 6 Pro, đồng bộ cỡ và màu theo token.
+
+## Image (Hiển thị dữ liệu)
+
+Hiển thị ảnh có xem phóng to và dự phòng.
+
+## Giới thiệu (Tổng quan)
+
+Ngôn ngữ thiết kế dùng chung để xây sản phẩm GHN nhất quán, dễ tiếp cận.
+
+## Input Number (Nhập liệu)
+
+Nhập số có nút tăng/giảm và bước nhảy.
+
+Import: `import { Input } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| addonAfter | `ReactNode` | no | - | @deprecated Use `Space.Compact` instead. @example ```tsx import { Space, InputNumber } from 'antd';  <Space.Compact>   <InputNumber defaultValue={1} />   {addon} </Space.Compact> ``` |
+| addonBefore | `ReactNode` | no | - | @deprecated Use `Space.Compact` instead. @example ```tsx import { Space, InputNumber } from 'antd';  <Space.Compact>   {addon}   <InputNumber defaultValue={1} /> </Space.Compact> ``` |
+| bordered | `boolean` | no | - | @deprecated Use `variant` instead. |
+| classNames | `((info: { props: InputNumberProps<ValueType>; }) => DeepClassNameType<{ root?: string; prefix?: string; suffix?: string | undefined; input?: string | undefined; actions?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| controls | `boolean | { upIcon?: ReactNode; downIcon?: ReactNode; }` | no | - |  |
+| disabled | `boolean` | no | - |  |
+| prefix | `ReactNode` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| size | `enum` | no | - |  |
+| status | `enum` | no | - |  |
+| styles | `((info: { props: InputNumberProps<ValueType>; }) => DeepStylesType<{ root?: CSSProperties; prefix?: CSSProperties; suffix?: CSSProperties | undefined; input?: CSSProperties | undefined; actions?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| suffix | `ReactNode` | no | - |  |
+| variant | `enum` | no | "outlined" | @since 5.13.0 |
+
+## Input (Nhập liệu)
+
+Ô nhập liệu một dòng kèm nhãn và trợ giúp.
+
+Import: `import { Input } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| addonAfter | `ReactNode` | no | - | @deprecated Use `Space.Compact` instead. @example ```tsx import { Space, Input } from 'antd';  <Space.Compact>   <Input defaultValue="name" />   {addon} </Space.Compact> ``` |
+| addonBefore | `ReactNode` | no | - | @deprecated Use `Space.Compact` instead. @example ```tsx import { Space, Input } from 'antd';  <Space.Compact>   {addon}   <Input defaultValue="name" /> </Space.Compact> ``` |
+| bordered | `boolean` | no | - | @deprecated Use `variant="borderless"` instead. |
+| classNames | `((info: { props: InputProps; }) => DeepClassNameType<{ root?: string; prefix?: string; suffix?: string | undefined; clear?: string | undefined; input?: string | undefined; count?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| disabled | `boolean` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| size | `enum` | no | - |  |
+| status | `enum` | no | - |  |
+| styles | `((info: { props: InputProps; }) => DeepStylesType<{ root?: CSSProperties; prefix?: CSSProperties; suffix?: CSSProperties | undefined; clear?: CSSProperties | undefined; input?: CSSProperties | undefined; count?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| variant | `enum` | no | "outlined" | @since 5.13.0 |
+
+## Trạng thái tương tác (Nền tảng)
+
+Ma trận hover/focus/active/disabled/loading nhất quán.
+
+## Layout (Bố cục)
+
+Khung bố cục trang: Header, Sider, Content, Footer.
+
+Import: `import { Layout } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| hasSider | `boolean` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| suffixCls | `string` | no | - |  |
+
+## List (Hiển thị dữ liệu)
+
+Danh sách mục đồng nhất, có thể kèm thao tác.
+
+## Mentions (Nhập liệu)
+
+Gắn thẻ người dùng bằng ký tự @ trong văn bản.
+
+Import: `import { Mentions } from 'antd';`
+
+## Menu (Điều hướng)
+
+Điều hướng chính dọc/ngang, có cấp con.
+
+Import: `import { Menu } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| classNames | `MenuClassNamesType` | no | - |  |
+| collapsedWidth | `string | number` | no | - |  |
+| inlineIndent | `number` | no | - |  |
+| items | `ItemType[]` | no | - |  |
+| siderCollapsed | `boolean` | no | - |  |
+| styles | `MenuStylesType` | no | - |  |
+| theme | `enum` | no | - |  |
+| tooltip | `false | TooltipProps` | no | - |  |
+
+## Message (Phản hồi)
+
+Thông báo nhẹ ở đỉnh màn hình, tự ẩn.
+
+## Modal (Phản hồi)
+
+Hộp thoại chặn nền để tập trung một tác vụ.
+
+Import: `import { Modal } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| afterClose | `(() => void)` | no | - |  |
+| afterOpenChange | `((open: boolean) => void)` | no | - | Callback when the animation ends when Modal is turned on and off |
+| bodyStyle | `CSSProperties` | no | - | @deprecated Please use `styles.body` instead |
+| cancelButtonProps | `ButtonProps` | no | - |  |
+| cancelText | `ReactNode` | no | - | Text of the Cancel button |
+| centered | `boolean` | no | - | Centered Modal |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: ModalProps; }) => DeepClassNameType<{ root?: string; header?: string; body?: string | undefined; footer?: string | undefined; container?: string | undefined; title?: string | undefined; wrapper?: string | undefined; mask?: string | undefined; close?: string | undefined; } | u...` | no | - |  |
+| closable | `boolean | (ClosableType & AriaAttributes & { onClose?: (() => void); afterClose?: (() => void); }) | undefined` | no | - |  |
+| closeIcon | `ReactNode` | no | - |  |
+| confirmLoading | `boolean` | no | - | Whether to apply loading visual effect for OK button or not |
+| destroyOnClose | `boolean` | no | - | @deprecated Please use `destroyOnHidden` instead |
+| destroyOnHidden | `boolean` | no | - | @since 5.25.0 |
+| focusable | `FocusableConfig` | no | - |  |
+| focusTriggerAfterClose | `boolean` | no | - | @deprecated Please use `focusable.focusTriggerAfterClose` instead |
+| footer | `ReactNode | ((originNode: ReactNode, extra: { OkBtn: FC<{}>; CancelBtn: FC<{}>; }) => ReactNode)` | no | - |  |
+| forceRender | `boolean` | no | - | Force render Modal |
+| getContainer | `string | false | HTMLElement | getContainerFunc` | no | - |  |
+| keyboard | `boolean` | no | - |  |
+| loading | `boolean` | no | - | @since 5.18.0 |
+| mask | `MaskType` | no | - |  |
+| maskClosable | `boolean` | no | - | @deprecated Please use `mask.closable` instead @description Whether to close the modal dialog when the mask (area outside the modal) is clicked |
+| maskStyle | `CSSProperties` | no | - | @deprecated Please use `styles.mask` instead |
+| maskTransitionName | `string` | no | - |  |
+| modalRender | `((node: ReactNode) => ReactNode)` | no | - |  |
+| mousePosition | `MousePosition` | no | - |  |
+| okButtonProps | `ButtonProps` | no | - |  |
+| okText | `ReactNode` | no | - | Text of the OK button |
+| okType | `enum` | no | - | Button `type` of the OK button |
+| onCancel | `((e: MouseEvent<HTMLButtonElement, MouseEvent> | KeyboardEvent<HTMLElement>) => void)` | no | - | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button, or presses Esc key |
+| onOk | `((e: MouseEvent<HTMLButtonElement, MouseEvent>) => void)` | no | - | Specify a function that will be called when a user clicks the OK button |
+| open | `boolean` | no | - | Whether the modal dialog is visible or not |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| rootStyle | `CSSProperties` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: ModalProps; }) => DeepStylesType<{ root?: CSSProperties; header?: CSSProperties; body?: CSSProperties | undefined; ... 5 more ...; close?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| title | `ReactNode` | no | - | The modal dialog's title |
+| transitionName | `string` | no | - |  |
+| width | `string | number | Partial<Record<"xxxl" | "xxl" | "xl" | "lg" | "md" | "sm" | "xs", string | number>>` | no | - | Width of the modal dialog |
+| wrapClassName | `string` | no | - |  |
+| wrapProps | `any` | no | - |  |
+| zIndex | `number` | no | - |  |
+
+## Chuyển động (Nền tảng)
+
+Thời lượng và đường cong chuyển động nhất quán, tinh tế.
+
+## Notification (Phản hồi)
+
+Thông báo nổi ở góc, tự ẩn sau vài giây.
+
+## Độ mờ (Nền tảng)
+
+Các mức độ mờ chuẩn cho disabled, overlay và văn bản phụ.
+
+## Pagination (Điều hướng)
+
+Chia dữ liệu dài thành nhiều trang.
+
+Import: `import { Pagination } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| classNames | `((info: { props: PaginationProps; }) => DeepClassNameType<{ root?: string; item?: string; } | undefined>) | DeepClassNameType<{ root?: string | undefined; item?: string | undefined; } | undefined>` | no | - |  |
+| pageSizeOptions | `(string | number)[]` | no | - | `string` type will be removed in next major version. |
+| responsive | `boolean` | no | - |  |
+| role | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| selectComponentClass | `any` | no | - | @deprecated Not official support. Will be removed in next major version. |
+| showQuickJumper | `boolean | { goButton?: ReactNode; }` | no | - |  |
+| showSizeChanger | `boolean | SelectProps<any, DefaultOptionType>` | no | - |  |
+| size | `enum` | no | - |  |
+| styles | `((info: { props: PaginationProps; }) => DeepStylesType<{ root?: CSSProperties; item?: CSSProperties; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| totalBoundaryShowSizeChanger | `number` | no | - |  |
+
+## Popconfirm (Phản hồi)
+
+Hỏi xác nhận nhanh ngay tại điểm thao tác.
+
+## Popover (Hiển thị dữ liệu)
+
+Khung nổi chứa nội dung phong phú khi click/hover.
+
+## Progress (Phản hồi)
+
+Cho biết tiến độ của một tác vụ.
+
+Import: `import { Progress } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: ProgressProps; }) => DeepClassNameType<{ root?: string; body?: string; rail?: string | undefined; track?: string | undefined; indicator?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| format | `((percent?: number, successPercent?: number) => ReactNode) | undefined` | no | - |  |
+| gapDegree | `number` | no | - |  |
+| gapPlacement | `enum` | no | - |  |
+| gapPosition | `enum` | no | - | @deprecated please use `gapPlacement` instead |
+| percent | `number` | no | - |  |
+| percentPosition | `PercentPositionType` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| railColor | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| rounding | `((step: number) => number)` | no | - |  |
+| showInfo | `boolean` | no | - |  |
+| size | `number | [string | number, number] | ProgressSize | { width?: number; height?: number; }` | no | - |  |
+| status | `enum` | no | - |  |
+| steps | `number | { count: number; gap: number; }` | no | - |  |
+| strokeColor | `string | string[] | ProgressGradient` | no | - |  |
+| strokeLinecap | `enum` | no | - |  |
+| strokeWidth | `number` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: ProgressProps; }) => DeepStylesType<{ root?: CSSProperties; body?: CSSProperties; rail?: CSSProperties | undefined; track?: CSSProperties | undefined; indicator?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| success | `SuccessProps` | no | - |  |
+| trailColor | `string` | no | - | @deprecated Please use `railColor` instead |
+| type | `enum` | no | - |  |
+| width | `number` | no | - | @deprecated Use `size` instead |
+
+## QR Code (Hiển thị dữ liệu)
+
+Mã QR cho liên kết hoặc dữ liệu, có logo giữa.
+
+Import: `import { QR } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| bordered | `boolean` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: QRCodeProps; }) => DeepClassNameType<{ root?: string; cover?: string; } | undefined>) | DeepClassNameType<{ root?: string | undefined; cover?: string | undefined; } | undefined>` | no | - |  |
+| errorLevel | `enum` | no | - |  |
+| icon | `string` | no | - |  |
+| iconSize | `number | { width: number; height: number; }` | no | - |  |
+| onRefresh | `(() => void)` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| status | `enum` | no | - |  |
+| statusRender | `((info: StatusRenderInfo) => ReactNode)` | no | - |  |
+| styles | `((info: { props: QRCodeProps; }) => DeepStylesType<{ root?: CSSProperties; cover?: CSSProperties; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| type | `enum` | no | - |  |
+
+## Radio (Nhập liệu)
+
+Chọn duy nhất một mục trong nhóm.
+
+Import: `import { Radio } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| autoFocus | `boolean` | no | - |  |
+| checked | `boolean` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: RadioProps; }) => DeepClassNameType<{ root?: string; icon?: string; label?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| defaultChecked | `boolean` | no | - |  |
+| disabled | `boolean` | no | - |  |
+| id | `string` | no | - |  |
+| name | `string` | no | - |  |
+| onBlur | `FocusEventHandler<HTMLInputElement>` | no | - |  |
+| onChange | `((e: RadioChangeEvent) => void)` | no | - |  |
+| onClick | `MouseEventHandler<HTMLElement>` | no | - |  |
+| onFocus | `FocusEventHandler<HTMLInputElement>` | no | - |  |
+| onKeyDown | `KeyboardEventHandler<HTMLElement>` | no | - |  |
+| onKeyPress | `KeyboardEventHandler<HTMLElement>` | no | - |  |
+| onMouseEnter | `MouseEventHandler<HTMLElement>` | no | - |  |
+| onMouseLeave | `MouseEventHandler<HTMLElement>` | no | - |  |
+| optionType | `enum` | no | 'default' | Control the appearance for Radio to display as button or not @internal |
+| prefixCls | `string` | no | - |  |
+| required | `boolean` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| skipGroup | `boolean` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: RadioProps; }) => DeepStylesType<{ root?: CSSProperties; icon?: CSSProperties; label?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| tabIndex | `number` | no | - |  |
+| title | `string` | no | - |  |
+| type | `string` | no | - |  |
+| value | `any` | no | - |  |
+
+## Rate (Nhập liệu)
+
+Chấm điểm bằng dãy biểu tượng sao.
+
+Import: `import { Rate } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| rootClassName | `string` | no | - |  |
+| size | `enum` | no | - |  |
+| tooltips | `(string | TooltipProps)[]` | no | - |  |
+
+## Result (Phản hồi)
+
+Trang kết quả sau một tác vụ (thành công/lỗi).
+
+Import: `import { Result } from 'antd';`
+
+## Segmented (Hiển thị dữ liệu)
+
+Bộ chọn phân đoạn cho 2–5 lựa chọn loại trừ.
+
+Import: `import { Segmented } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| block | `boolean` | no | - | Option to fit width to its parent's width |
+| classNames | `((info: { props: SegmentedProps<SegmentedValue>; }) => DeepClassNameType<{ root?: string; icon?: string; label?: string | undefined; item?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| options | `SegmentedOptions<ValueType>` | yes | - |  |
+| orientation | `enum` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| shape | `enum` | no | - |  |
+| size | `enum` | no | - | Option to control the display size |
+| styles | `((info: { props: SegmentedProps<SegmentedValue>; }) => DeepStylesType<{ root?: CSSProperties; icon?: CSSProperties; label?: CSSProperties | undefined; item?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| vertical | `boolean` | no | - |  |
+
+## Select (Nhập liệu)
+
+Chọn một hoặc nhiều giá trị, hỗ trợ thẻ gỡ.
+
+Import: `import { Select } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| bordered | `boolean` | no | - | @deprecated Use `variant` instead. |
+| classNames | `((info: { props: SelectProps<any, DefaultOptionType>; }) => DeepClassNameType<{ root?: string; prefix?: string; suffix?: string | undefined; ... 7 more ...; popup?: { ...; } | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| disabled | `boolean` | no | - |  |
+| dropdownClassName | `string` | no | - | @deprecated Please use `classNames.popup.root` instead |
+| dropdownMatchSelectWidth | `number | boolean` | no | - | @deprecated Please use `popupMatchSelectWidth` instead |
+| dropdownRender | `((menu: ReactElement<unknown, string | JSXElementConstructor<any>>) => ReactElement<unknown, string | JSXElementConstructor<any>>)` | no | - | @deprecated Please use `popupRender` instead |
+| dropdownStyle | `CSSProperties` | no | - | @deprecated Please use `styles.popup` instead |
+| loadingIcon | `ReactNode` | no | - |  |
+| mode | `enum` | no | - |  |
+| onDropdownVisibleChange | `((open: boolean) => void)` | no | - | @deprecated Please use `onOpenChange` instead |
+| onOpenChange | `((visible: boolean) => void)` | no | - |  |
+| placement | `enum` | no | - |  |
+| popupClassName | `string` | no | - | @deprecated Please use `classNames.popup.root` instead |
+| popupMatchSelectWidth | `number | boolean` | no | - |  |
+| prefix | `ReactNode` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| showArrow | `boolean` | no | - | @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null. |
+| showSearch | `boolean | (SearchConfig<OptionType> & { searchIcon?: ReactNode; })` | no | - |  |
+| size | `enum` | no | - |  |
+| status | `enum` | no | - |  |
+| styles | `((info: { props: SelectProps<any, DefaultOptionType>; }) => DeepStylesType<{ root?: CSSProperties; prefix?: CSSProperties; ... 8 more ...; popup?: { ...; } | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| suffixIcon | `ReactNode` | no | - |  |
+| variant | `enum` | no | "outlined" | @since 5.13.0 |
+
+## Skeleton (Phản hồi)
+
+Khối giữ chỗ nhấp nháy khi đang tải nội dung.
+
+Import: `import { Skeleton } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| active | `boolean` | no | - |  |
+| avatar | `boolean | SkeletonAvatarProps` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; header?: string; section?: string | undefined; avatar?: string | undefined; title?: string | undefined; paragraph?: string | undefined; } | undefined> | ((info: { ...; }) => DeepClassNameType<...>)` | no | - |  |
+| loading | `boolean` | no | - |  |
+| paragraph | `boolean | SkeletonParagraphProps` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| round | `boolean` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; header?: CSSProperties; section?: CSSProperties | undefined; avatar?: CSSProperties | undefined; title?: CSSProperties | undefined; paragraph?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| title | `boolean | SkeletonTitleProps` | no | - |  |
+
+## Slider (Nhập liệu)
+
+Chọn giá trị hoặc khoảng trên dải liên tục.
+
+Import: `import { Slider } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| ariaLabelForHandle | `string | string[]` | no | - |  |
+| ariaLabelledByForHandle | `string | string[]` | no | - |  |
+| ariaRequired | `boolean` | no | - |  |
+| ariaValueTextFormatterForHandle | `AriaValueFormat | AriaValueFormat[]` | no | - |  |
+| autoFocus | `boolean` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; tracks?: string; track?: string | undefined; rail?: string | undefined; handle?: string | undefined; } | undefined> | ((info: { ...; }) => DeepClassNameType<...>)` | no | - |  |
+| defaultValue | `number | number[]` | no | - |  |
+| disabled | `boolean` | no | - |  |
+| dots | `boolean` | no | - |  |
+| handleStyle | `CSSProperties | CSSProperties[]` | no | - | @deprecated Please use `styles.handle` instead @deprecated Please use `styles.handle` instead |
+| id | `string` | no | - |  |
+| included | `boolean` | no | - |  |
+| keyboard | `boolean` | no | - |  |
+| marks | `Record<string | number, ReactNode | MarkObj>` | no | - |  |
+| max | `number` | no | - |  |
+| min | `number` | no | - |  |
+| onAfterChange | `((value: number) => void) | ((value: number[]) => void)` | no | - | @deprecated Please use `onChangeComplete` instead @deprecated Please use `onChangeComplete` instead |
+| onBlur | `FocusEventHandler<HTMLDivElement>` | no | - |  |
+| onChange | `((value: number) => void) | ((value: number[]) => void)` | no | - |  |
+| onChangeComplete | `((value: number) => void) | ((value: number[]) => void)` | no | - |  |
+| onFocus | `FocusEventHandler<HTMLDivElement>` | no | - |  |
+| orientation | `enum` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| railStyle | `CSSProperties` | no | - | @deprecated Please use `styles.rail` instead @deprecated Please use `styles.rail` instead |
+| range | `boolean | RangeConfig` | no | - |  |
+| reverse | `boolean` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| step | `number | null` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; tracks?: CSSProperties; track?: CSSProperties | undefined; rail?: CSSProperties | undefined; handle?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| tabIndex | `number | number[]` | no | - |  |
+| tooltip | `SliderTooltipProps` | no | - |  |
+| trackStyle | `CSSProperties | CSSProperties[]` | no | - | @deprecated Please use `styles.track` instead @deprecated Please use `styles.track` instead |
+| value | `number | number[]` | no | - |  |
+| vertical | `boolean` | no | - |  |
+
+## Space (Bố cục)
+
+Khoảng cách đều giữa các phần tử liền kề.
+
+## Khoảng cách & Bo góc (Nền tảng)
+
+Lưới 4px và bo góc mặc định 8px tạo nhịp điệu nhất quán.
+
+## Spin (Phản hồi)
+
+Vòng xoay báo đang tải.
+
+## Splitter (Bố cục)
+
+Chia vùng thành các ô kéo giãn được.
+
+Import: `import { Splitter } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; panel?: string; dragger?: string | { default?: string | undefined; active?: string | undefined; } | undefined; } | undefined> | ((info: { ...; }) => DeepClassNameType<...>)` | no | - |  |
+| collapsible | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode; }; } | undefined` | no | - | Collapse configuration. Set `motion: true` to enable collapse animation (duration follows Component Token). |
+| collapsibleIcon | `{ start?: ReactNode; end?: ReactNode; }` | no | - | @deprecated please use `collapsible.icon` |
+| destroyOnHidden | `boolean` | no | - |  |
+| draggerIcon | `ReactNode` | no | - |  |
+| layout | `enum` | no | horizontal | @deprecated please use `orientation` |
+| lazy | `boolean` | no | - |  |
+| onCollapse | `((collapsed: boolean[], sizes: number[]) => void)` | no | - |  |
+| onDraggerDoubleClick | `((index: number) => void)` | no | - |  |
+| onResize | `((sizes: number[]) => void)` | no | - |  |
+| onResizeEnd | `((sizes: number[]) => void)` | no | - |  |
+| onResizeStart | `((sizes: number[]) => void)` | no | - |  |
+| orientation | `enum` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; panel?: CSSProperties; dragger?: { default?: CSSProperties | undefined; active?: CSSProperties | undefined; } | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| vertical | `boolean` | no | - |  |
+
+## Statistic (Hiển thị dữ liệu)
+
+Hiển thị số liệu nổi bật kèm nhãn và xu hướng.
+
+Import: `import { Statistic } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; content?: string; value?: string | undefined; title?: string | undefined; header?: string | undefined; prefix?: string | undefined; suffix?: string | undefined; } | undefined> | ((info: { ...; }) => DeepClassNameType<...>)` | no | - |  |
+| decimalSeparator | `string` | no | - |  |
+| formatter | `Formatter` | no | - |  |
+| groupSeparator | `string` | no | - |  |
+| loading | `boolean` | no | - |  |
+| onMouseEnter | `MouseEventHandler<HTMLDivElement>` | no | - |  |
+| onMouseLeave | `MouseEventHandler<HTMLDivElement>` | no | - |  |
+| precision | `number` | no | - |  |
+| prefix | `ReactNode` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; content?: CSSProperties; value?: CSSProperties | undefined; title?: CSSProperties | undefined; header?: CSSProperties | undefined; prefix?: CSSProperties | undefined; suffix?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesTyp...` | no | - |  |
+| suffix | `ReactNode` | no | - |  |
+| title | `ReactNode` | no | - |  |
+| value | `valueType` | no | - |  |
+| valueRender | `((node: ReactNode) => ReactNode)` | no | - |  |
+| valueStyle | `CSSProperties` | no | - | @deprecated Please use `styles.content` instead |
+
+## Steps (Điều hướng)
+
+Hiển thị tiến trình qua các bước tuần tự.
+
+Import: `import { Steps } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; item?: string; itemWrapper?: string | undefined; itemIcon?: string | undefined; itemSection?: string | undefined; itemHeader?: string | undefined; itemTitle?: string | undefined; itemSubtitle?: string | undefined; itemContent?: string | undefined; itemRail?:...` | no | - |  |
+| current | `number` | no | - |  |
+| direction | `enum` | no | - | @deprecated Please use `orientation` instead. |
+| ellipsis | `boolean` | no | - |  |
+| iconRender | `IconRenderType` | no | - |  |
+| initial | `number` | no | - |  |
+| items | `StepItem[]` | no | - |  |
+| labelPlacement | `enum` | no | - | @deprecated Please use `titlePlacement` instead. |
+| offset | `number` | no | - | Set offset cell, only work when `type` is `inline`. |
+| onChange | `((current: number) => void)` | no | - |  |
+| orientation | `enum` | no | - |  |
+| percent | `number` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| progressDot | `boolean | ProgressDotRender` | no | - | @deprecated Please use `type` and `iconRender` instead. |
+| responsive | `boolean` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| size | `enum` | no | - | Note: `default` is deprecated and will be removed in v7, please use `medium` instead. |
+| status | `enum` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; item?: CSSProperties; itemWrapper?: CSSProperties | undefined; itemIcon?: CSSProperties | undefined; ... 5 more ...; itemRail?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| titlePlacement | `enum` | no | - |  |
+| type | `enum` | no | - |  |
+| variant | `enum` | no | - |  |
+
+## Switch (Nhập liệu)
+
+Bật/tắt tức thì, áp dụng ngay không cần xác nhận.
+
+## Table (Hiển thị dữ liệu)
+
+Trình bày dữ liệu hàng–cột, sắp xếp, phân trang.
+
+Import: `import { Table } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| bordered | `boolean` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; section?: string; title?: string | undefined; footer?: string | undefined; body?: ComponentsSemanticClassNames | undefined; content?: string | undefined; header?: ComponentsSemanticClassNames | undefined; pagination?: { ...; } | undefined; } | undefined> | (...` | no | - |  |
+| column | `Partial<ColumnType<RecordType>>` | no | - |  |
+| columns | `ColumnsType<RecordType>` | no | - |  |
+| dataSource | `readonly RecordType[]` | no | - |  |
+| dropdownPrefixCls | `string` | no | - |  |
+| getPopupContainer | `GetPopupContainer` | no | - |  |
+| loading | `boolean | SpinProps` | no | - |  |
+| locale | `TableLocale` | no | - |  |
+| onChange | `((pagination: TablePaginationConfig, filters: Record<string, FilterValue | null>, sorter: SorterResult<RecordType> | SorterResult<...>[], extra: TableCurrentDataSource<...>) => void)` | no | - |  |
+| pagination | `false | TablePaginationConfig` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| rowSelection | `TableRowSelection<RecordType>` | no | - |  |
+| scroll | `({ x?: string | number | true; y?: string | number; } & { scrollToFirstRowOnChange?: boolean | undefined; }) | undefined` | no | - |  |
+| showSorterTooltip | `boolean | SorterTooltipProps` | no | - |  |
+| size | `enum` | no | - |  |
+| sortDirections | `SortOrder[]` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; section?: CSSProperties; title?: CSSProperties | undefined; footer?: CSSProperties | undefined; body?: ComponentsSemanticStyles | undefined; content?: CSSProperties | undefined; header?: ComponentsSemanticStyles | undefined; pagination?: { ...; } | undef...` | no | - |  |
+| virtual | `boolean` | no | - |  |
+
+## Tabs (Hiển thị dữ liệu)
+
+Chuyển giữa các nhóm nội dung cùng cấp.
+
+## Tag / Chips (Hiển thị dữ liệu)
+
+Nhãn nhỏ phân loại, lọc hoặc gắn trạng thái.
+
+## Time Picker (Nhập liệu)
+
+Chọn giờ/phút/giây qua cột cuộn.
+
+Import: `import { Time } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| addon | `(() => ReactNode)` | no | - |  |
+| bordered | `boolean` | no | - | @deprecated Use `variant` instead |
+| classNames | `((info: { props: TimePickerProps; }) => DeepClassNameType<{ root?: string; prefix?: string; input?: string | undefined; suffix?: string | undefined; popup?: string | ... 1 more ... | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| defaultValue | `Dayjs | null` | no | - |  |
+| dropdownClassName | `string` | no | - | @deprecated `dropdownClassName` is deprecated which will be removed in next major version.Please use `classNames.popup.root` instead. |
+| locale | `PickerLocale` | no | - |  |
+| multiple | `false` | no | - | Not support `time` or `datetime` picker |
+| onChange | `((date: Dayjs | null, dateString: string | null) => void)` | no | - |  |
+| onOk | `((date: Dayjs) => void)` | no | - |  |
+| onSelect | `((value: Dayjs) => void)` | no | - | @deprecated Please use `onCalendarChange` instead |
+| placement | `enum` | no | - |  |
+| popupClassName | `string` | no | - | @deprecated Please use `classNames.popup` instead |
+| popupStyle | `CSSProperties` | no | - | @deprecated Please use `styles.popup` instead |
+| rootClassName | `string` | no | - |  |
+| size | `enum` | no | - |  |
+| status | `enum` | no | - |  |
+| styles | `((info: { props: TimePickerProps; }) => DeepStylesType<{ root?: CSSProperties; prefix?: CSSProperties; input?: CSSProperties | undefined; suffix?: CSSProperties | undefined; popup?: { ...; } | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| value | `Dayjs | null` | no | - |  |
+| variant | `enum` | no | "outlined" | @since 5.13.0 |
+
+## Timeline (Hiển thị dữ liệu)
+
+Dòng thời gian các sự kiện theo thứ tự.
+
+## Tooltip (Hiển thị dữ liệu)
+
+Chú thích ngắn khi hover/focus.
+
+## Tour (Phản hồi)
+
+Hướng dẫn từng bước làm nổi bật phần tử.
+
+Import: `import { Tour } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| actionsRender | `((originNode: ReactNode, info: { current: number; total: number; }) => ReactNode)` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: TourProps; }) => DeepClassNameType<{ root?: string; cover?: string; close?: string | undefined; mask?: string | undefined; section?: string | undefined; ... 6 more ...; description?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| current | `number` | no | - |  |
+| indicatorsRender | `((current: number, total: number) => ReactNode)` | no | - |  |
+| keyboard | `boolean` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| steps | `TourStepProps[]` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: TourProps; }) => DeepStylesType<{ root?: CSSProperties; cover?: CSSProperties; close?: CSSProperties | undefined; ... 8 more ...; description?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| type | `enum` | no | - |  |
+
+## Transfer (Nhập liệu)
+
+Chuyển mục giữa hai danh sách nguồn–đích.
+
+Import: `import { Transfer } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| actions | `ReactNode[]` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: TransferProps<any>; }) => DeepClassNameType<{ root?: string; section?: string; header?: string | undefined; title?: string | undefined; body?: string | undefined; ... 7 more ...; target?: TransferSectionSemanticClassNames | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| dataSource | `RecordType[]` | no | - |  |
+| disabled | `boolean` | no | - |  |
+| filterOption | `((inputValue: string, item: RecordType, direction: TransferDirection) => boolean)` | no | - |  |
+| footer | `((props: TransferListProps<RecordType>, info?: { direction: TransferDirection; }) => ReactNode)` | no | - |  |
+| listStyle | `CSSProperties | ((style: ListStyle) => CSSProperties)` | no | - | @deprecated Please use `styles.section` instead. |
+| locale | `Partial<TransferLocale>` | no | - |  |
+| onChange | `((targetKeys: Key[], direction: TransferDirection, moveKeys: Key[]) => void)` | no | - |  |
+| oneWay | `boolean` | no | - |  |
+| onScroll | `((direction: TransferDirection, e: SyntheticEvent<HTMLUListElement, Event>) => void)` | no | - |  |
+| onSearch | `((direction: TransferDirection, value: string) => void)` | no | - |  |
+| onSelectChange | `((sourceSelectedKeys: Key[], targetSelectedKeys: Key[]) => void)` | no | - |  |
+| operations | `string[]` | no | - | @deprecated Please use `actions` instead. |
+| operationStyle | `CSSProperties` | no | - | @deprecated Please use `styles.actions` instead. |
+| pagination | `PaginationType` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| render | `TransferRender<RecordType>` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| rowKey | `((record: RecordType) => Key)` | no | - |  |
+| selectAllLabels | `SelectAllLabel[]` | no | - |  |
+| selectedKeys | `Key[]` | no | - |  |
+| selectionsIcon | `ReactNode` | no | - |  |
+| showSearch | `boolean | TransferSearchOption` | no | - |  |
+| showSelectAll | `boolean` | no | - |  |
+| status | `enum` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: TransferProps<any>; }) => DeepStylesType<{ root?: CSSProperties; section?: CSSProperties; header?: CSSProperties | undefined; ... 9 more ...; target?: TransferSectionSemanticStyles | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| targetKeys | `Key[]` | no | - |  |
+| titles | `ReactNode[]` | no | - |  |
+
+## TreeSelect (Nhập liệu)
+
+Chọn giá trị từ cây phân cấp trong dropdown.
+
+Import: `import { TreeSelect } from 'antd';`
+
+## Tree (Hiển thị dữ liệu)
+
+Cấu trúc cây phân cấp, mở rộng và chọn.
+
+Import: `import { Tree } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| autoExpandParent | `boolean` | no | - | Whether to automatically expand the parent node |
+| blockNode | `boolean` | no | - |  |
+| checkable | `boolean` | no | - | Whether to support selection |
+| checkedKeys | `Key[] | { checked: Key[]; halfChecked: Key[]; }` | no | - | (Controlled) Tree node with checked checkbox |
+| checkStrictly | `boolean` | no | - | Node selection in Checkable state is fully controlled (the selected state of parent and child nodes is no longer associated) |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: TreeProps<DataNode>; }) => DeepClassNameType<{ root?: string; item?: string; itemIcon?: string | undefined; itemTitle?: string | undefined; itemSwitcher?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| defaultCheckedKeys | `Key[]` | no | - | Tree node with checkbox checked by default |
+| defaultExpandAll | `boolean` | no | - | Expand all tree nodes by default |
+| defaultExpandedKeys | `Key[]` | no | - | Expand the specified tree node by default |
+| defaultExpandParent | `boolean` | no | - | Expand the corresponding tree node by default |
+| defaultSelectedKeys | `Key[]` | no | - | Tree node selected by default |
+| disabled | `boolean` | no | - | whether to disable the tree |
+| draggable | `boolean | DraggableFn | DraggableConfig` | no | - | Set the node to be draggable (IE>8) |
+| expandedKeys | `Key[]` | no | - | (Controlled) Expand the specified tree node |
+| filterAntTreeNode | `((node: AntTreeNode) => boolean)` | no | - | Click on the tree node to trigger |
+| icon | `TreeIcon` | no | - |  |
+| loadedKeys | `Key[]` | no | - |  |
+| multiple | `boolean` | no | - | Whether to support multiple selection |
+| prefixCls | `string` | no | - |  |
+| selectable | `boolean` | no | - |  |
+| selectedKeys | `Key[]` | no | - | (Controlled) Set the selected tree node |
+| showIcon | `boolean` | no | - |  |
+| showLine | `boolean | { showLeafIcon: TreeLeafIcon; }` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: TreeProps<DataNode>; }) => DeepStylesType<{ root?: CSSProperties; item?: CSSProperties; itemIcon?: CSSProperties | undefined; itemTitle?: CSSProperties | undefined; itemSwitcher?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+| switcherIcon | `SwitcherIcon` | no | - |  |
+| switcherLoadingIcon | `ReactNode` | no | - |  |
+
+## Kiểu chữ (Nền tảng)
+
+Inter là phông chữ duy nhất, thang cỡ rõ ràng và dễ đọc.
+
+Import: `import { Kiểu } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| aria-label | `string` | no | - | Defines a string value that labels the current element. |
+| className | `string` | no | - |  |
+| classNames | `((info: { props: BaseTypographyProps; }) => DeepClassNameType<{ root?: string; actions?: string; action?: string | undefined; textarea?: string | undefined; } | undefined>) | DeepClassNameType<...>` | no | - |  |
+| component | `enum` | no | - | @internal |
+| direction | `enum` | no | - |  |
+| id | `string` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `((info: { props: BaseTypographyProps; }) => DeepStylesType<{ root?: CSSProperties; actions?: CSSProperties; action?: CSSProperties | undefined; textarea?: CSSProperties | undefined; } | undefined>) | DeepStylesType<...>` | no | - |  |
+
+## Upload (Nhập liệu)
+
+Tải tệp qua nút chọn hoặc kéo–thả.
+
+Import: `import { Upload } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| accept | `string | AcceptConfig` | no | - |  |
+| action | `string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>)` | no | - |  |
+| beforeUpload | `((file: RcFile, fileList: RcFile[]) => BeforeUploadValueType | Promise<BeforeUploadValueType>)` | no | - |  |
+| className | `string` | no | - |  |
+| classNames | `DeepClassNameType<{ root?: string; list?: string; item?: string | undefined; trigger?: string | undefined; } | undefined> | ((info: { props: UploadProps<...>; }) => DeepClassNameType<...>)` | no | - |  |
+| customRequest | `((options: UploadRequestOption<any>, info: { defaultRequest: (option: UploadRequestOption<any>) => void; }) => void)` | no | - |  |
+| data | `Record<string, unknown> | ((file: UploadFile<any>) => Record<string, unknown> | Promise<Record<string, unknown>>)` | no | - |  |
+| defaultFileList | `UploadFile<any>[]` | no | - |  |
+| directory | `boolean` | no | - |  |
+| disabled | `boolean` | no | - |  |
+| fileList | `UploadFile<any>[]` | no | - |  |
+| headers | `HttpRequestHeader` | no | - |  |
+| iconRender | `((file: UploadFile<any>, listType?: UploadListType) => ReactNode)` | no | - |  |
+| id | `string` | no | - |  |
+| isImageUrl | `((file: UploadFile<any>) => boolean)` | no | - |  |
+| itemRender | `ItemRender<any>` | no | - |  |
+| listType | `enum` | no | - |  |
+| locale | `UploadLocale` | no | - |  |
+| maxCount | `number` | no | - | Config max count of `fileList`. Will replace current one when `maxCount` is 1 |
+| method | `enum` | no | - |  |
+| multiple | `boolean` | no | - |  |
+| name | `string` | no | - |  |
+| onChange | `((info: UploadChangeParam<UploadFile<any>>) => void)` | no | - |  |
+| onDownload | `((file: UploadFile<any>) => void)` | no | - |  |
+| onDrop | `((event: DragEvent<HTMLDivElement>) => void)` | no | - |  |
+| onPreview | `((file: UploadFile<any>) => void)` | no | - |  |
+| onRemove | `((file: UploadFile<any>) => boolean | void | Promise<boolean | void>)` | no | - |  |
+| openFileDialogOnClick | `boolean` | no | - |  |
+| prefixCls | `string` | no | - |  |
+| previewFile | `PreviewFileHandler` | no | - |  |
+| progress | `UploadListProgressProps` | no | - |  |
+| rootClassName | `string` | no | - |  |
+| showUploadList | `boolean | ShowUploadListInterface<any>` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| styles | `DeepStylesType<{ root?: CSSProperties; list?: CSSProperties; item?: CSSProperties | undefined; trigger?: CSSProperties | undefined; } | undefined> | ((info: { ...; }) => DeepStylesType<...>)` | no | - |  |
+| supportServerRender | `boolean` | no | - |  |
+| type | `enum` | no | - |  |
+| withCredentials | `boolean` | no | - |  |
+
+## Watermark (Phản hồi)
+
+Phủ chữ/logo mờ lên nội dung để bảo vệ.
+
+Import: `import { Watermark } from 'antd';`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| className | `string` | no | - |  |
+| content | `string | string[]` | no | - |  |
+| font | `{ color?: string | CanvasGradient | CanvasPattern; fontSize?: string | number; fontWeight?: number | "normal" | "lighter" | "bold" | "bolder" | undefined; fontStyle?: "normal" | ... 3 more ... | undefined; fontFamily?: string | undefined; textAlign?: CanvasTextAlign | undefined; } | undefined` | no | - |  |
+| gap | `[number, number]` | no | - |  |
+| height | `number` | no | - |  |
+| image | `string` | no | - |  |
+| inherit | `boolean` | no | - |  |
+| offset | `[number, number]` | no | - |  |
+| onRemove | `(() => void)` | no | - | @since 6.0.0 |
+| rootClassName | `string` | no | - |  |
+| rotate | `number` | no | - |  |
+| style | `CSSProperties` | no | - |  |
+| width | `number` | no | - |  |
+| zIndex | `number` | no | - |  |
+
+## Phân lớp (Z-index) (Nền tảng)
+
+Thang z-index chuẩn để xếp lớp các bề mặt nổi.
+

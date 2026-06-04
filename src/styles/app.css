@@ -1,0 +1,142 @@
+/* ===========================================================================
+   App shell + starter screen styles for the GHN vibe-coding template.
+
+   Border policy (GHN Figma): containers are SOFT CARDS (hairline + subtle shadow via
+   `.ghn-card`), not hard 1px boxes. A surface gets a fill OR a border, never both.
+   Every value references a GHN token (var(--ghn-*)) — never hardcode hex/px here or in
+   new screens. Delete the `.page` / `.welcome-card` rules once you build your own UI.
+   =========================================================================== */
+
+/* soft card elevation — the default surface treatment (replaces hard 1px borders) */
+.ghn-card {
+  background: var(--ghn-white);
+  border-radius: var(--ghn-r-card);
+  box-shadow: 0 0 0 1px rgba(9, 9, 11, 0.05), 0 1px 2px rgba(9, 9, 11, 0.04),
+    0 1px 3px rgba(9, 9, 11, 0.03);
+}
+
+/* ---------- App shell ---------- */
+.ghn-app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--ghn-bg-subtle);
+}
+
+.ghn-sidebar {
+  width: 256px;
+  flex: 0 0 256px;
+  display: flex;
+  flex-direction: column;
+  background: var(--ghn-white);
+  /* single hairline divider — the one allowed border on the shell */
+  border-right: 1px solid var(--ghn-border);
+}
+.ghn-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--ghn-s12);
+  padding: var(--ghn-s16);
+}
+.ghn-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--ghn-s8);
+  flex: 1 1 auto;
+  overflow: auto;
+}
+.ghn-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--ghn-s12);
+  width: 100%;
+  padding: var(--ghn-s8) var(--ghn-s12);
+  border: none;
+  background: none;
+  border-radius: var(--ghn-r-default);
+  font-family: var(--ghn-font);
+  font-size: var(--ghn-primitive-font-size-body);
+  font-weight: 500;
+  color: var(--ghn-text-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.ghn-nav-item:hover {
+  background: var(--ghn-hover);
+  color: var(--ghn-text);
+}
+.ghn-nav-item.is-active {
+  background: var(--ghn-primary-soft);
+  color: var(--ghn-primary);
+}
+.ghn-nav-item__label {
+  flex: 1 1 auto;
+  text-align: left;
+}
+.ghn-sidebar__footer {
+  border-top: 1px solid var(--ghn-border);
+  padding: var(--ghn-s12);
+}
+.ghn-sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--ghn-s8);
+}
+.ghn-sidebar__user-info {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.ghn-sidebar__user-info strong {
+  font-size: var(--ghn-primitive-font-size-body);
+  color: var(--ghn-text);
+}
+.ghn-sidebar__user-info span {
+  font-size: var(--ghn-primitive-font-size-sm);
+  color: var(--ghn-text-muted);
+}
+.ghn-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+/* ---------- starter screen (delete when you build your own) ---------- */
+.page {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--ghn-s32) var(--ghn-s24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ghn-s24);
+}
+.page__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ghn-s4);
+}
+.welcome-card {
+  padding: var(--ghn-s24);
+}
+.welcome-card__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ghn-s8);
+}
+.welcome-card__list {
+  list-style: none;
+  margin: var(--ghn-s8) 0 var(--ghn-s16);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ghn-s12);
+}
+.welcome-card__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--ghn-s12);
+}
