@@ -2,7 +2,7 @@
 
 > Chuẩn GHN trên Ant Design v6. Import component từ `antd` (theme GHN qua ConfigProvider — xem `AGENTS.md`). Theme chỉ qua design token; không hardcode hex/px. Chỉ font Inter, radius mặc định 8, icon FontAwesome 6 Pro.
 
-Brand: primary `#ff5200`, info/link `#006fad`. Catalog máy đọc: `ai/components.json`. Hướng dẫn đầy đủ (khi nào dùng/KHÔNG dùng, token, a11y, nền tảng): `ai/guide.md`. Props từng component: `ai/llms-full.txt`. Schema: `component-schema.json`. Recipes: `ai/recipes.json`. Quy tắc bắt buộc cho AI: `AGENTS.md` (gốc dự án).
+Brand: primary `#ff5200`, info/link `#006fad`. Catalog máy đọc: `ai/components.json`. Hướng dẫn đầy đủ (khi nào dùng/KHÔNG dùng, token, a11y, nền tảng): `ai/guide.md`. Props/API component: đọc types trong `node_modules/antd` hoặc docs antd (KHÔNG đóng băng ở đây để tránh lệch version). Schema: `component-schema.json`. Recipes: `ai/recipes.json`. Quy tắc bắt buộc cho AI: `AGENTS.md` (gốc dự án).
 
 ## Hướng dẫn
 

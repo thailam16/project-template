@@ -1,11 +1,9 @@
+// AUTO-GENERATED từ tokens.json bởi scripts/build-tokens.mjs — KHÔNG sửa tay. Chạy `npm run tokens`.
 import type { ThemeConfig } from 'antd';
 
 /**
- * GHN theme for antd's <ConfigProvider>.
- *
- * Vanilla Ant Design ships a BLUE default theme — this config is what makes antd look like GHN, so
- * it is REQUIRED (applied in `main.tsx`). Values mirror the GHN design tokens
- * (`../ant-design/dist/tokens/antd-theme.light.ts`); keep them in sync with `src/styles/tokens.css`.
+ * GHN theme cho <ConfigProvider> của antd. Vanilla Ant Design mặc định màu XANH — config này biến
+ * nó thành GHN, nên BẮT BUỘC (đã áp ở GhnConfigProvider/main.tsx). Mọi giá trị đến từ tokens.json.
  */
 export const ghnTheme: ThemeConfig = {
   token: {
@@ -17,10 +15,9 @@ export const ghnTheme: ThemeConfig = {
     colorLink: '#006fad',
     borderRadius: 8,
     sizeUnit: 4,
-    // Figma inputs/controls are 36px tall; align antd's default control height.
+    // Figma inputs/controls cao 36px; chỉnh controlHeight mặc định của antd cho khớp.
     controlHeight: 36,
-    fontFamily:
-      "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
   },
   components: {
     // Input & Select dùng cùng bo góc mặc định 8px như nút/card để giao diện đồng đều.

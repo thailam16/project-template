@@ -5,10 +5,16 @@
   "type": "module",
   "description": "Template khởi đầu cho dự án vibe coding GHN — Vite + React 19 + TS trên Ant Design v6 (antd) theme GHN.",
   "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "check-ds": "node scripts/check-ds.mjs",
+    "predev": "node scripts/build-tokens.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/build-tokens.mjs",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "sync-ds": "node scripts/sync-ds.mjs"
   },
   "dependencies": {
     "antd": "^6.4.3",
@@ -17,10 +23,14 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "typescript": "^5.7.3",
+    "typescript-eslint": "^8.18.0",
     "vite": "^6.3.5"
   }
 }
