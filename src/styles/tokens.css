@@ -43,8 +43,8 @@
   --ghn-brand-link: #006fad;
   --ghn-radius-base: 8px;
   --ghn-size-unit: 4px;
-  --ghn-component-input-radius: 4px;
-  --ghn-component-select-radius: 4px;
+  --ghn-component-input-radius: 8px;
+  --ghn-component-select-radius: 8px;
   --ghn-component-tag-radius: 2px;
 }
 [data-theme="dark"] {

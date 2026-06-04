@@ -20,11 +20,12 @@ export const ghnTheme: ThemeConfig = {
     // Figma inputs/controls are 36px tall; align antd's default control height.
     controlHeight: 36,
     fontFamily:
-      "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif",
+      "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
   },
   components: {
-    Input: { borderRadius: 4 },
-    Select: { borderRadius: 4 },
+    // Input & Select dùng cùng bo góc mặc định 8px như nút/card để giao diện đồng đều.
+    Input: { borderRadius: 8 },
+    Select: { borderRadius: 8 },
     Tag: { borderRadiusSM: 2 },
   },
 };

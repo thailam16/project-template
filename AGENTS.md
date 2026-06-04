@@ -28,7 +28,7 @@
 
 ## Theming & tokens
 
-- **Bắt buộc** bọc app bằng `<ConfigProvider theme={ghnTheme} locale={viVN}>` (đã làm sẵn ở `main.tsx`). `ghnTheme` (`src/theme.ts`) là thứ biến antd "xanh" thành GHN: `colorPrimary #ff5200`, `colorInfo/Link #006fad`, `borderRadius 8`, `controlHeight 36`, font Inter, Input/Select radius 4, Tag 2.
+- **Bắt buộc** bọc app bằng `<ConfigProvider theme={ghnTheme} locale={viVN}>` (đã làm sẵn ở `main.tsx`). `ghnTheme` (`src/theme.ts`) là thứ biến antd "xanh" thành GHN: `colorPrimary #ff5200`, `colorInfo/Link #006fad`, `borderRadius 8`, `controlHeight 36`, font Inter, Input/Select radius 8 (đồng bộ mặc định), Tag 2.
 - Chỉ theme qua **design token + `ConfigProvider`**. Không hardcode.
 - Token CSS sẵn dùng (định nghĩa trong `src/styles/tokens.css` + `semantic.css`):
   - Brand: `--ghn-primary`, `--ghn-primary-hover`, `--ghn-primary-active`, `--ghn-primary-soft`, `--ghn-on-primary`
