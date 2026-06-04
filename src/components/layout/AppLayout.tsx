@@ -1,37 +1,40 @@
-import { useState, type ReactNode } from 'react';
-import { Avatar } from 'antd';
+import type { ReactNode } from 'react';
+import { Avatar, Button } from 'antd';
 import { Icon } from '../common/Icon';
 
 /**
  * App shell — sidebar (GHN branding + nav) + scrollable content pane.
  *
- * Border policy (GHN Figma): the shell uses a single hairline divider between sidebar and content;
- * surfaces inside the content are soft cards (`.ghn-card`), not hard-bordered boxes. Every colour,
- * spacing and radius below references a `var(--ghn-*)` token — never hardcode hex/px in new screens.
- *
- * This is a starter layout: swap the `NAV` items and the `children` for your own screens.
+ * Controlled: cha truyền `active` + `onNavigate` để điều khiển trang đang xem.
+ * Border policy (GHN Figma): chỉ một hairline phân tách sidebar/content; bề mặt bên trong là soft
+ * card (`.ghn-card`), không viền cứng. Mọi màu/spacing/radius qua token `var(--ghn-*)`.
  */
-interface NavItem {
+export interface NavItem {
   key: string;
   label: string;
   icon: string;
 }
 
 const NAV: NavItem[] = [
-  { key: 'home', label: 'Trang chủ', icon: 'house' },
-  { key: 'list', label: 'Danh sách', icon: 'table-columns' },
-  { key: 'reports', label: 'Báo cáo', icon: 'chart-simple' },
+  { key: 'dashboard', label: 'Tổng quan', icon: 'chart-simple' },
+  { key: 'create-order', label: 'Tạo đơn', icon: 'plus' },
+  { key: 'orders', label: 'Đơn hàng', icon: 'box' },
+  { key: 'customers', label: 'Khách hàng', icon: 'users' },
   { key: 'settings', label: 'Cài đặt', icon: 'gear' },
 ];
 
-export function AppLayout({ children }: { children: ReactNode }) {
-  const [active, setActive] = useState('home');
+export interface AppLayoutProps {
+  active: string;
+  onNavigate: (key: string) => void;
+  onLogout?: () => void;
+  children: ReactNode;
+}
 
+export function AppLayout({ active, onNavigate, onLogout, children }: AppLayoutProps) {
   return (
     <div className="ghn-app">
       <aside className="ghn-sidebar">
         <div className="ghn-sidebar__brand">
-          {/* Branding asset shipped in /public — full lockup. Use /ghn-icon.svg for compact spots. */}
           <img src="/ghn-logo.svg" alt="GHN" height={28} />
         </div>
 
@@ -42,7 +45,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
               type="button"
               className={`ghn-nav-item${active === item.key ? ' is-active' : ''}`}
               aria-current={active === item.key ? 'page' : undefined}
-              onClick={() => setActive(item.key)}
+              onClick={() => onNavigate(item.key)}
             >
               <Icon name={item.icon} tone={active === item.key ? 'primary' : 'muted'} />
               <span className="ghn-nav-item__label">{item.label}</span>
@@ -54,9 +57,18 @@ export function AppLayout({ children }: { children: ReactNode }) {
           <div className="ghn-sidebar__user">
             <Avatar size={32}>GHN</Avatar>
             <div className="ghn-sidebar__user-info">
-              <strong>Người dùng GHN</strong>
-              <span>user@ghn.vn</span>
+              <strong>Điều phối viên</strong>
+              <span>dieuphoi@ghn.vn</span>
             </div>
+            {onLogout && (
+              <Button
+                type="text"
+                size="small"
+                aria-label="Đăng xuất"
+                icon={<Icon name="arrow-right-from-bracket" tone="muted" />}
+                onClick={onLogout}
+              />
+            )}
           </div>
         </div>
       </aside>
