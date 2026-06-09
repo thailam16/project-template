@@ -7,5 +7,7 @@ app **bắt buộc** bọc `<GhnConfigProvider>` (`src/components/GhnConfigProvi
 (antd mặc định màu xanh); màu/spacing/radius/font qua token `var(--ghn-*)` — nguồn token DUY NHẤT là
 `tokens.json` (`npm run tokens` sinh `theme.ts`+`tokens.css`, đừng sửa tay 2 file đó); chỉ font Inter;
 icon chỉ FontAwesome 6 Pro (Regular mặc định) qua `<Icon/>`; bề mặt là soft card (fill HOẶC border,
-không cả hai). Tài liệu đầy đủ (khi nào dùng/KHÔNG dùng, token, a11y) ở `ghn-docs/ai/guide.md`; catalog
+không cả hai); cần **biểu đồ** → CHỈ dùng **Highcharts** (`highcharts` + `highcharts-react-official`) với
+theme GHN chung (`applyGhnHighchartsTheme()`) + module accessibility, không dùng chart lib khác (xem mục
+Chart trong `AGENTS.md`). Tài liệu đầy đủ (khi nào dùng/KHÔNG dùng, token, a11y) ở `ghn-docs/ai/guide.md`; catalog
 `ghn-docs/ai/components.json`; props/API đọc thẳng types `antd`. Trước khi giao: `npm run check-ds && npm run lint`.
