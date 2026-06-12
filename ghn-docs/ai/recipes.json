@@ -85,15 +85,15 @@
       "components": [
         "Card",
         "Statistic",
-        "Highcharts"
+        "ECharts"
       ],
       "when": "Tổng quan số liệu (đơn theo ngày, tỉ trọng trạng thái)",
       "rules": [
-        "Chart DUY NHẤT bằng Highcharts (highcharts + highcharts-react-official) — không dùng @ant-design/charts, recharts, chart.js, echarts, d3",
-        "Gọi applyGhnHighchartsTheme() một lần lúc khởi động; chart nằm trong .ghn-card, nền trong suốt",
-        "Bật module accessibility; mỗi series có name; số kiểu VN (',' thập phân, '.' nghìn)",
+        "Chart DUY NHẤT bằng Apache ECharts (echarts + echarts-for-react) — không dùng @ant-design/charts, recharts, chart.js, highcharts, d3",
+        "Gọi registerGhnEchartsTheme() một lần lúc khởi động và truyền theme=\"ghn\"; chart nằm trong .ghn-card, nền trong suốt",
+        "Bật aria.enabled; mỗi series có name; số kiểu VN qua formatter toLocaleString('vi-VN')",
         "Số đơn lẻ dùng Statistic, bảng chi tiết dùng Table — chỉ dùng chart khi cần trực quan xu hướng/tỉ trọng",
-        "Highcharts cần license thương mại cho sản phẩm GHN"
+        "ECharts là Apache-2.0 — miễn phí cho cả sản phẩm thương mại GHN, không cần mua license"
       ],
       "tokens": [
         "--ghn-primary",

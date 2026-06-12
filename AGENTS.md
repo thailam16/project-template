@@ -16,7 +16,7 @@
 5. **Icon: chỉ FontAwesome 6 Pro** (Regular 400 mặc định), dùng qua `<Icon/>` (`src/components/common/Icon.tsx`). Không trộn bộ icon khác (Material, `@ant-design/icons`, emoji…).
 6. **Radius mặc định 8px**; input/select 8px, tag 2px; control cao **36px** (đã set trong `theme.ts`).
 7. **Tuân thủ design system** mô tả trong `ghn-docs/` (xem mục [Nguồn tham chiếu](#-nguồn-tham-chiếu-cho-ai)).
-8. **Biểu đồ (chart): CHỈ dùng Highcharts.** Khi cần trực quan hoá dữ liệu (line/column/area/pie/gauge…) dùng `highcharts` + `highcharts-react-official` — **KHÔNG** dùng `@ant-design/charts`, Recharts, Chart.js, ECharts, D3 hay tự vẽ SVG/canvas. Mọi chart PHẢI áp theme GHN (màu/chữ/lưới từ token) và bật module accessibility. Chi tiết ở mục [Chart / Biểu đồ](#chart--biểu-đồ--bắt-buộc-highcharts).
+8. **Biểu đồ (chart): CHỈ dùng Apache ECharts.** Khi cần trực quan hoá dữ liệu (line/bar/area/pie/gauge…) dùng `echarts` + `echarts-for-react` — **KHÔNG** dùng `@ant-design/charts`, Recharts, Chart.js, Highcharts, D3 hay tự vẽ SVG/canvas. Mọi chart PHẢI áp theme GHN (`theme="ghn"`, màu/chữ/lưới từ token) và bật accessibility (`aria.enabled`). Chi tiết ở mục [Chart / Biểu đồ](#chart--biểu-đồ--bắt-buộc-apache-echarts).
 
 ---
 
@@ -26,7 +26,7 @@
 - ✅ Locale tiếng Việt: `import viVN from 'antd/locale/vi_VN'` (đã set ở `main.tsx`).
 - ✅ Type: `import type { ThemeConfig } from 'antd'`.
 - ✅ Icon antd dạng vẽ tay nếu rất cần: KHÔNG — dùng `<Icon/>` (FontAwesome 6 Pro) thay cho `@ant-design/icons`.
-- ✅ Chart: `import Highcharts from 'highcharts'` + `import HighchartsReact from 'highcharts-react-official'` (xem mục [Chart / Biểu đồ](#chart--biểu-đồ--bắt-buộc-highcharts)). ❌ KHÔNG `@ant-design/charts`, `recharts`, `chart.js`, `echarts`, `d3`.
+- ✅ Chart: `import * as echarts from 'echarts'` + `import ReactECharts from 'echarts-for-react'` (xem mục [Chart / Biểu đồ](#chart--biểu-đồ--bắt-buộc-apache-echarts)). ❌ KHÔNG `@ant-design/charts`, `recharts`, `chart.js`, `highcharts`, `d3`.
 
 ## Theming & tokens
 
@@ -69,56 +69,62 @@
 - Logo đầy đủ: `public/ghn-logo.svg`. Icon vuông (favicon/spot nhỏ): `public/ghn-icon.svg`.
 - Không tự vẽ lại / đổi màu logo. Dùng trực tiếp file SVG.
 
-## Chart / Biểu đồ — bắt buộc Highcharts
+## Chart / Biểu đồ — bắt buộc Apache ECharts
 
 Chỉ dùng chart **khi thực sự cần trực quan hoá** dữ liệu: xu hướng theo thời gian, so sánh nhiều nhóm, tỉ trọng, đồng hồ đo… (các chỗ `guide.md` gợi ý "dùng biểu đồ"). Một con số đơn lẻ → **Statistic**; bảng dữ liệu chi tiết → **Table**. Đừng nhét chart vào chỗ không cần.
 
-- **Thư viện chart DUY NHẤT: Highcharts.** Cài `npm install highcharts highcharts-react-official --save`. KHÔNG dùng `@ant-design/charts`, Recharts, Chart.js, ECharts, D3, hay tự vẽ SVG/canvas.
-- ⚠️ **License:** Highcharts miễn phí cho phi-thương-mại nhưng **cần license thương mại** cho sản phẩm GHN — xác nhận license hợp lệ trước khi đưa lên production.
-- **Brand GHN qua MỘT theme chung** (đúng tinh thần `GhnConfigProvider` cho antd): gọi `applyGhnHighchartsTheme()` **đúng một lần** lúc app khởi động (import trong `main.tsx`, SAU khi đã import styles). Theme đọc thẳng token `var(--ghn-*)` nên không bao giờ lệch brand.
-- **Token, không hardcode:** màu chuỗi (`colors`), chữ Inter (`--ghn-font`), nền trong suốt để chart nằm trên `.ghn-card`, lưới/nhãn theo `--ghn-border` / `--ghn-text-muted`. KHÔNG gán hex/px trực tiếp trong `options`.
-- **Accessibility bắt buộc:** import `highcharts/modules/accessibility` và để `accessibility.enabled: true`. Mỗi series có `name` rõ; có `title`/`caption` mô tả; không truyền nghĩa chỉ bằng màu — luôn kèm legend/nhãn.
-- **Số kiểu VN:** `lang.decimalPoint: ','`, `lang.thousandsSep: '.'`.
-- **Props/API:** đọc thẳng types `highcharts` trong `node_modules` (hoặc docs Highcharts) — đừng đoán option.
+- **Thư viện chart DUY NHẤT: Apache ECharts.** Cài `npm install echarts echarts-for-react --save`. KHÔNG dùng `@ant-design/charts`, Recharts, Chart.js, Highcharts, D3, hay tự vẽ SVG/canvas.
+- ✅ **License:** ECharts là **Apache-2.0** — miễn phí cho cả sản phẩm thương mại GHN, không cần mua license.
+- **Brand GHN qua MỘT theme chung** (đúng tinh thần `GhnConfigProvider` cho antd): gọi `registerGhnEchartsTheme()` **đúng một lần** lúc app khởi động (import trong `main.tsx`, SAU khi đã import styles) để đăng ký theme tên `'ghn'`; component truyền `theme="ghn"`. Theme đọc thẳng token `var(--ghn-*)` nên không bao giờ lệch brand.
+- **Token, không hardcode:** màu chuỗi (`color`), chữ Inter (`--ghn-font`), nền trong suốt (`backgroundColor: 'transparent'`) để chart nằm trên `.ghn-card`, lưới/nhãn theo `--ghn-border` / `--ghn-text-muted`. KHÔNG gán hex/px trực tiếp trong `option`.
+- **Accessibility bắt buộc:** để `aria: { enabled: true }` (đã có sẵn trong bundle `echarts`, không cần import module riêng). Mỗi series có `name` rõ; có `title` mô tả; không truyền nghĩa chỉ bằng màu — luôn kèm legend/nhãn.
+- **Số kiểu VN:** ECharts không có `lang.thousandsSep` như Highcharts — định dạng qua `formatter` dùng `(v) => v.toLocaleString('vi-VN')` ở `tooltip` / `axisLabel` / `label`.
+- **Props/API:** đọc thẳng types `echarts` (`EChartsOption`) trong `node_modules` (hoặc docs ECharts) — đừng đoán option.
 
-Theme chung — đặt ở `src/lib/ghnHighcharts.ts`:
+Theme chung — đặt ở `src/lib/ghnEcharts.ts`:
 
 ```ts
-import Highcharts from 'highcharts';
-import 'highcharts/modules/accessibility'; // a11y — bắt buộc
+import * as echarts from 'echarts';
 
 const css = (n: string) =>
   getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 
-// Gọi 1 lần ở main.tsx (sau import './styles/index.css') — brand GHN cho MỌI chart.
-export function applyGhnHighchartsTheme() {
-  Highcharts.setOptions({
-    colors: [css('--ghn-primary'), css('--ghn-info'), css('--ghn-success'), css('--ghn-warning'), css('--ghn-error')],
-    chart: { backgroundColor: 'transparent', style: { fontFamily: css('--ghn-font') } },
-    title: { style: { color: css('--ghn-text'), fontWeight: '600' } },
-    xAxis: { lineColor: css('--ghn-border'), labels: { style: { color: css('--ghn-text-muted') } } },
-    yAxis: { gridLineColor: css('--ghn-border'), labels: { style: { color: css('--ghn-text-muted') } } },
-    legend: { itemStyle: { color: css('--ghn-text') } },
-    credits: { enabled: false },
-    lang: { decimalPoint: ',', thousandsSep: '.' },
-    accessibility: { enabled: true },
+const axis = () => ({
+  axisLine: { lineStyle: { color: css('--ghn-border') } },
+  axisLabel: { color: css('--ghn-text-muted') },
+  splitLine: { lineStyle: { color: css('--ghn-border') } },
+});
+
+// Gọi 1 lần ở main.tsx (sau import './styles/index.css') — đăng ký theme 'ghn' cho MỌI chart.
+export function registerGhnEchartsTheme() {
+  echarts.registerTheme('ghn', {
+    color: [css('--ghn-primary'), css('--ghn-info'), css('--ghn-success'), css('--ghn-warning'), css('--ghn-error')],
+    backgroundColor: 'transparent',
+    textStyle: { fontFamily: css('--ghn-font'), color: css('--ghn-text') },
+    title: { textStyle: { color: css('--ghn-text'), fontWeight: 600 } },
+    categoryAxis: axis(),
+    valueAxis: axis(),
+    legend: { textStyle: { color: css('--ghn-text') } },
+    aria: { enabled: true }, // a11y — bắt buộc
   });
 }
 ```
 
-Dùng trong component:
+Dùng trong component (nhớ `theme="ghn"`):
 
 ```tsx
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
+import ReactECharts from 'echarts-for-react';
+import type { EChartsOption } from 'echarts';
 
-const options: Highcharts.Options = {
+const option: EChartsOption = {
   title: { text: 'Đơn tạo theo ngày' },
-  xAxis: { categories: ['T2', 'T3', 'T4', 'T5', 'T6'] },
-  series: [{ type: 'column', name: 'Đơn tạo', data: [120, 200, 150, 80, 170] }],
+  tooltip: {},
+  xAxis: { type: 'category', data: ['T2', 'T3', 'T4', 'T5', 'T6'] },
+  yAxis: { type: 'value' },
+  series: [{ type: 'bar', name: 'Đơn tạo', data: [120, 200, 150, 80, 170] }],
 };
 
-<HighchartsReact highcharts={Highcharts} options={options} />;
+<ReactECharts option={option} theme="ghn" style={{ height: 320 }} />;
 ```
 
 ## 📚 Nguồn tham chiếu cho AI
@@ -171,5 +177,5 @@ Khi cần biết khi-nào-dùng / "không nên dùng" / token / props của mộ
 - [ ] Đổi token? Sửa `tokens.json` + `npm run tokens`; `npm run check-ds` + `npm run lint` sạch.
 - [ ] Không có hex/px/radius/font hardcode — tất cả qua `var(--ghn-*)` hoặc token `ConfigProvider`.
 - [ ] Nút chỉ-icon có `aria-label`; bề mặt là soft card (không "vừa fill vừa border").
-- [ ] Có biểu đồ? Chỉ dùng Highcharts (`highcharts-react-official`); đã gọi `applyGhnHighchartsTheme()` một lần; bật module accessibility; không lib chart khác.
+- [ ] Có biểu đồ? Chỉ dùng Apache ECharts (`echarts-for-react`); đã gọi `registerGhnEchartsTheme()` một lần và truyền `theme="ghn"`; bật `aria.enabled`; không lib chart khác.
 - [ ] `npm run build` và `npm run typecheck` chạy sạch.
